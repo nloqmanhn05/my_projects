@@ -1,0 +1,417 @@
+[
+  {
+    "email_id": "email_501",
+    "from": "exports@ifpla.com",
+    "subject": "RE_ TO CONFIRM DOCS _ 5RSG-51584 _ HOUSTON_US _ KPP-ANTALIS (SINGAPORE) PTE. LTD. _ YMJAI905670867",
+    "body": "Dear Team,\n\nPlease find attached the SI and the Commercial Invoice for I009004365. Kindly confirm the BL is in order.\n\n(Note: the second attachment is a Commercial Invoice, not the draft BL.)",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "wrong_doc_type",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {
+      "si": {
+        "file": "attachments/email_501_SI.txt",
+        "format": "txt",
+        "read_error": null,
+        "kind": "si"
+      },
+      "bl": {
+        "file": "attachments/email_501_BL.txt",
+        "format": "txt",
+        "read_error": null,
+        "kind": "other"
+      }
+    },
+    "attachments": [
+      "attachments/email_501_SI.txt",
+      "attachments/email_501_BL.txt"
+    ],
+    "notes": [
+      "Attachment content does not match its expected role (SI->si, BL->other)."
+    ]
+  },
+  {
+    "email_id": "email_502",
+    "from": "hari_mardianto@aprilasia.com",
+    "subject": "TO CONFIRM DOCS _ 5RSG-63369 _ ASHDOD_ISRAEL _ ROXCEL TRADING GMBH _ MCLSIN5054296",
+    "body": "Dear Team,\n\nPlease find attached the SI and the Packing List for MCLSINJEA2508070. Kindly confirm the BL is in order.\n\n(Note: the second attachment is a Packing List, not the draft BL.)",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "wrong_doc_type",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {
+      "si": {
+        "file": "attachments/email_502_SI.txt",
+        "format": "txt",
+        "read_error": null,
+        "kind": "si"
+      },
+      "bl": {
+        "file": "attachments/email_502_BL.txt",
+        "format": "txt",
+        "read_error": null,
+        "kind": "other"
+      }
+    },
+    "attachments": [
+      "attachments/email_502_SI.txt",
+      "attachments/email_502_BL.txt"
+    ],
+    "notes": [
+      "Attachment content does not match its expected role (SI->si, BL->other)."
+    ]
+  },
+  {
+    "email_id": "email_503",
+    "from": "logistics@algurg.ae",
+    "subject": "AFEMY - HOCHIMINH CITY_VIETNAM - HAPAG(HLCUSIN016481880) - 5ALT-36381 - 5250076432 - INTERNATIONAL FOREST PRODUCTS LLC - OA_CFR",
+    "body": "Dear Team,\n\nPlease find attached the SI and the Certificate of Origin for 44287738. Kindly confirm the BL is in order.\n\n(Note: the second attachment is a Certificate of Origin, not the draft BL.)",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "wrong_doc_type",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {
+      "si": {
+        "file": "attachments/email_503_SI.txt",
+        "format": "txt",
+        "read_error": null,
+        "kind": "si"
+      },
+      "bl": {
+        "file": "attachments/email_503_BL.txt",
+        "format": "txt",
+        "read_error": null,
+        "kind": "other"
+      }
+    },
+    "attachments": [
+      "attachments/email_503_SI.txt",
+      "attachments/email_503_BL.txt"
+    ],
+    "notes": [
+      "Attachment content does not match its expected role (SI->si, BL->other)."
+    ]
+  },
+  {
+    "email_id": "email_504",
+    "from": "willy_ss@aprilasia.com",
+    "subject": "REQUEST BL DRAFT _ PO 26823_ PAPERBOARD__210MT",
+    "body": "Dear Team,\n\nPlease find attached the SI and the Packing List for MCLSINJEA2558631. Kindly confirm the BL is in order.\n\n(Note: the second attachment is a Packing List, not the draft BL.)",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "wrong_doc_type",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {
+      "si": {
+        "file": "attachments/email_504_SI.txt",
+        "format": "txt",
+        "read_error": null,
+        "kind": "si"
+      },
+      "bl": {
+        "file": "attachments/email_504_BL.txt",
+        "format": "txt",
+        "read_error": null,
+        "kind": "other"
+      }
+    },
+    "attachments": [
+      "attachments/email_504_SI.txt",
+      "attachments/email_504_BL.txt"
+    ],
+    "notes": [
+      "Attachment content does not match its expected role (SI->si, BL->other)."
+    ]
+  },
+  {
+    "email_id": "email_505",
+    "from": "faraz_ali@aprilasia.com",
+    "subject": "RE_ AFEMY - CEBU_PHILIPPINES - OOCL(OOLU8243017646) - 5AKR-31538 - 5250078824 - EAST BRIGHT FZ-LLC - DP",
+    "body": "Dear Team,\n\nPlease find attached the SI and the Certificate of Origin for PSGSE4489880. Kindly confirm the BL is in order.\n\n(Note: the second attachment is a Certificate of Origin, not the draft BL.)",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "wrong_doc_type",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {
+      "si": {
+        "file": "attachments/email_505_SI.txt",
+        "format": "txt",
+        "read_error": null,
+        "kind": "si"
+      },
+      "bl": {
+        "file": "attachments/email_505_BL.txt",
+        "format": "txt",
+        "read_error": null,
+        "kind": "other"
+      }
+    },
+    "attachments": [
+      "attachments/email_505_SI.txt",
+      "attachments/email_505_BL.txt"
+    ],
+    "notes": [
+      "Attachment content does not match its expected role (SI->si, BL->other)."
+    ]
+  },
+  {
+    "email_id": "email_506",
+    "from": "arlene_yamomo@aprilasia.com",
+    "subject": "RE_ AFRT - LONG BEACH_US - EVER(EGLV433335384951) - 5RSG-19787 - 5250071809 - EAST BRIGHT FZ-LLC - OA_CFR",
+    "body": "Dear Team,\n\nPlease compare the SI and draft BL for 070500263211 and confirm (attachments appear to have been dropped). Thank you.",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "missing_attachment",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {},
+    "attachments": [],
+    "notes": [
+      "Expected SI and/or BL attachment is missing."
+    ]
+  },
+  {
+    "email_id": "email_507",
+    "from": "docs@vitalsolutions.sg",
+    "subject": "RE_ TO CONFIRM DOCS _ 5AKR-00230 _ KOPER_SLOVENIA _ 3S PAPER PRODUCTS SDN BHD _ YMJAI530601198",
+    "body": "Dear Team,\n\nPlease compare the SI and draft BL for I756178688 and confirm (the draft BL is still missing). Thank you.",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "missing_attachment",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {},
+    "attachments": [
+      "attachments/email_507_SI.txt"
+    ],
+    "notes": [
+      "Expected SI and/or BL attachment is missing."
+    ]
+  },
+  {
+    "email_id": "email_508",
+    "from": "elisa_tukiman@april.com.my",
+    "subject": "AIE - CALLAO_PERU - EVER(EGLV577449160936) - 5RUS-14911 - 5250078941 - KPP-ANTALIS (SINGAPORE) PTE. LTD. - LC",
+    "body": "Dear Team,\n\nPlease compare the SI and draft BL for 070500259520 and confirm (attachments appear to have been dropped). Thank you.",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "missing_attachment",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {},
+    "attachments": [],
+    "notes": [
+      "Expected SI and/or BL attachment is missing."
+    ]
+  },
+  {
+    "email_id": "email_509",
+    "from": "aziztz@safqa.co.ke",
+    "subject": "AFRT - CALLAO_PERU - YM(YMJAI926322399) - 5RVN-11404 - 5250072886 - INTERNATIONAL FOREST PRODUCTS LLC - CFR",
+    "body": "Dear Team,\n\nPlease compare the SI and draft BL for I821374556 and confirm (the draft BL is still missing). Thank you.",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "missing_attachment",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {},
+    "attachments": [
+      "attachments/email_509_SI.txt"
+    ],
+    "notes": [
+      "Expected SI and/or BL attachment is missing."
+    ]
+  },
+  {
+    "email_id": "email_510",
+    "from": "mj@fujitogrp.com",
+    "subject": "TO CONFIRM DOCS _ 5RVN-06271 _ MERSIN_TURKEY _ SAFQA LIMITED _ OOLU0811260030",
+    "body": "Dear Team,\n\nPlease compare the SI and draft BL for PSGSE8356691 and confirm (attachments appear to have been dropped). Thank you.",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "missing_attachment",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {},
+    "attachments": [],
+    "notes": [
+      "Expected SI and/or BL attachment is missing."
+    ]
+  },
+  {
+    "email_id": "email_511",
+    "from": "willy_ss@aprilasia.com",
+    "subject": "RE_ TO CONFIRM DOCS _ 5SUS-40134 _ KOPER_SLOVENIA _ AL GURG STATIONERY LLC _ MCLSIN6917768",
+    "body": "Dear Team,\n\nAttached SI and draft BL for MCLSINJEA2529384 for checking (the BL file will not open). Please advise.",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "unreadable",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {
+      "si": {
+        "file": "attachments/email_511_SI.txt",
+        "format": "txt",
+        "read_error": null
+      },
+      "bl": {
+        "file": "attachments/email_511_BL.pdf",
+        "format": "pdf",
+        "read_error": "parse_error: Stream has ended unexpectedly"
+      }
+    },
+    "attachments": [
+      "attachments/email_511_SI.txt",
+      "attachments/email_511_BL.pdf"
+    ],
+    "notes": [
+      "Attachment could not be parsed."
+    ]
+  },
+  {
+    "email_id": "email_512",
+    "from": "hanna_azhari@aprilasia.com",
+    "subject": "REQUEST BL DRAFT _ PO 25041_ PAPERONE DIGITAL COPIER PAPER__120MT",
+    "body": "Dear Team,\n\nAttached SI and draft BL for 070500208599 for checking (scanned copies (image only)). Please advise.",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "unreadable",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {
+      "si": {
+        "file": "attachments/email_512_SI.pdf",
+        "format": "pdf",
+        "read_error": null,
+        "kind": "unreadable"
+      },
+      "bl": {
+        "file": "attachments/email_512_BL.pdf",
+        "format": "pdf",
+        "read_error": null,
+        "kind": "unreadable"
+      }
+    },
+    "attachments": [
+      "attachments/email_512_SI.pdf",
+      "attachments/email_512_BL.pdf"
+    ],
+    "notes": [
+      "Attachment yielded no extractable text (scanned?)."
+    ]
+  },
+  {
+    "email_id": "email_513",
+    "from": "sathiya@april.com.my",
+    "subject": "RE_ AFEMY - VALPARAISO_CHILE - OOCL(OOLU4899718428) - 5RUS-91408 - 5250074993 - KPP-ANTALIS (SINGAPORE) PTE. LTD. - DP",
+    "body": "Dear Team,\n\nAttached SI and draft BL for PSGSE5969325 for checking (scanned copies (image only)). Please advise.",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "unreadable",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {
+      "si": {
+        "file": "attachments/email_513_SI.pdf",
+        "format": "pdf",
+        "read_error": null,
+        "kind": "unreadable"
+      },
+      "bl": {
+        "file": "attachments/email_513_BL.pdf",
+        "format": "pdf",
+        "read_error": null,
+        "kind": "unreadable"
+      }
+    },
+    "attachments": [
+      "attachments/email_513_SI.pdf",
+      "attachments/email_513_BL.pdf"
+    ],
+    "notes": [
+      "Attachment yielded no extractable text (scanned?)."
+    ]
+  },
+  {
+    "email_id": "email_514",
+    "from": "hari_mardianto@aprilasia.com",
+    "subject": "RE_ Draft BL LE HAVRE V.QI540A NANTONG - amend BL 042",
+    "body": "Dear Team,\n\nAttached SI and draft BL for ONEYSINF26176 for checking (scanned copies (image only)). Please advise.",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "unreadable",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {
+      "si": {
+        "file": "attachments/email_514_SI.pdf",
+        "format": "pdf",
+        "read_error": null,
+        "kind": "unreadable"
+      },
+      "bl": {
+        "file": "attachments/email_514_BL.pdf",
+        "format": "pdf",
+        "read_error": null,
+        "kind": "unreadable"
+      }
+    },
+    "attachments": [
+      "attachments/email_514_SI.pdf",
+      "attachments/email_514_BL.pdf"
+    ],
+    "notes": [
+      "Attachment yielded no extractable text (scanned?)."
+    ]
+  },
+  {
+    "email_id": "email_515",
+    "from": "arlene_yamomo@aprilasia.com",
+    "subject": "AFRT - AQABA_JORDAN - CMA(SIJ4056129) - 5RSG-95826 - 5250074186 - 3S PAPER PRODUCTS SDN BHD - OA_CFR",
+    "body": "Dear Team,\n\nAttached SI and draft BL for SIJ9650826 for checking (the BL file will not open). Please advise.",
+    "category": "BL_COMPARISON",
+    "status": "NEEDS_REVIEW",
+    "review_reason": "unreadable",
+    "has_defect": false,
+    "defect_fields": [],
+    "fields": {},
+    "docs": {
+      "si": {
+        "file": "attachments/email_515_SI.txt",
+        "format": "txt",
+        "read_error": null
+      },
+      "bl": {
+        "file": "attachments/email_515_BL.pdf",
+        "format": "pdf",
+        "read_error": "parse_error: Stream has ended unexpectedly"
+      }
+    },
+    "attachments": [
+      "attachments/email_515_SI.txt",
+      "attachments/email_515_BL.pdf"
+    ],
+    "notes": [
+      "Attachment could not be parsed."
+    ]
+  }
+]

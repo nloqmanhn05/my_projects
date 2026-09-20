@@ -1,0 +1,32 @@
+{
+  "generated_by": "reka pipeline",
+  "total_emails": 520,
+  "counts": {
+    "category": {
+      "BL_COMPARISON": 129,
+      "INVOICE_QUERY": 104,
+      "GENERAL": 115,
+      "SI_REQUEST": 132,
+      "SPAM": 40
+    },
+    "status": {
+      "OK": 454,
+      "MISMATCH": 51,
+      "NEEDS_REVIEW": 15
+    },
+    "review_reason": {
+      "wrong_doc_type": 5,
+      "missing_attachment": 5,
+      "unreadable": 5
+    },
+    "defect_fields": {
+      "consignee": 11,
+      "notify_party": 8,
+      "port_of_discharge": 14,
+      "container_count": 19,
+      "gross_weight_kg": 12,
+      "port_of_loading": 7,
+      "shipper": 11
+    }
+  }
+}
