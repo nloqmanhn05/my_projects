@@ -286,7 +286,7 @@ def run_pipeline(
     out_file.write_text(json.dumps(submission, indent=2), encoding="utf-8")
     print(f"Saved submission output to: {out_file.resolve()}")
 
-    # Write rich details for Streamlit UI
+    # Write rich details for Dashboard UI
     details_file = OUTPUT_DIR / "pipeline_details.json"
     details_file.write_text(json.dumps(details, indent=2), encoding="utf-8")
     print(f"Saved rich details to: {details_file.resolve()}")
