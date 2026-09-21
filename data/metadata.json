@@ -3,28 +3,28 @@
   "total_emails": 520,
   "counts": {
     "category": {
-      "BL_COMPARISON": 129,
+      "BL_COMPARISON": 220,
       "INVOICE_QUERY": 104,
-      "GENERAL": 115,
       "SI_REQUEST": 132,
+      "GENERAL": 24,
       "SPAM": 40
     },
     "status": {
-      "OK": 454,
-      "MISMATCH": 51,
-      "NEEDS_REVIEW": 15
+      "OK": 353,
+      "NEEDS_REVIEW": 124,
+      "MISMATCH": 43
     },
     "review_reason": {
-      "wrong_doc_type": 5,
-      "missing_attachment": 5,
-      "unreadable": 5
+      "missing_attachment": 96,
+      "unreadable": 23,
+      "wrong_doc_type": 5
     },
     "defect_fields": {
       "consignee": 11,
-      "notify_party": 8,
-      "port_of_discharge": 14,
-      "container_count": 19,
-      "gross_weight_kg": 12,
+      "notify_party": 7,
+      "port_of_discharge": 13,
+      "container_count": 13,
+      "gross_weight_kg": 6,
       "port_of_loading": 7,
       "shipper": 11
     }

@@ -8,32 +8,56 @@ reason the rule decision stands untouched.
 """
 import json
 import os
+from pathlib import Path
+import re
 import urllib.error
 import urllib.request
 
 BASE = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
 
+def _load_env_local():
+    """Load GEMINI_API_KEY and config from .env.local if present."""
+    env_local = Path(__file__).resolve().parents[1] / ".env.local"
+    if env_local.exists():
+        for line in env_local.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                k = k.strip()
+                val = v.strip().strip('"\'')
+                if val:
+                    os.environ[k] = val
+
+
+_load_env_local()
+
+
 def available():
+    _load_env_local()
     return bool(os.environ.get("GEMINI_API_KEY"))
 
 
 def model_name():
-    return os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+    return os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
 
 
 def generate(prompt, timeout=60):
     """Return the model's text output or raise."""
-    key = os.environ["GEMINI_API_KEY"]
+    key = os.environ.get("GEMINI_API_KEY", "").strip()
     url = BASE.format(model=model_name()) + f"?key={key}"
     payload = json.dumps({
         "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.0, "maxOutputTokens": 1024},
+        "generationConfig": {"temperature": 0.0, "maxOutputTokens": 4096},
     }).encode()
     req = urllib.request.Request(url, data=payload,
                                  headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        data = json.loads(r.read())
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            data = json.loads(r.read())
+    except urllib.error.HTTPError as err:
+        body = err.read().decode("utf-8", errors="replace")
+        raise RuntimeError(f"HTTP {err.code}: {body}")
     try:
         text = data["candidates"][0]["content"]["parts"][0]["text"]
     except (KeyError, IndexError, TypeError):
@@ -68,11 +92,12 @@ def ask_categories(records, notes=""):
 
 def _parse_json_map(text):
     """Extract the first JSON object from a model response."""
-    m = text.find("{")
-    end = text.rfind("}")
+    cleaned = re.sub(r"```(?:json)?|```", "", text).strip()
+    m = cleaned.find("{")
+    end = cleaned.rfind("}")
     if m == -1 or end == -1:
         raise ValueError("no JSON in model output")
-    return json.loads(text[m:end + 1])
+    return json.loads(cleaned[m:end + 1])
 
 
 def compare_docs_gemini(si_text, bl_text):
