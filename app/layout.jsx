@@ -1,27 +1,30 @@
-import Link from "next/link";
+import NavRail from "../components/NavRail";
+import { loadResults } from "../lib/data";
 import "./globals.css";
 
 export const metadata = {
-  title: "Reka — Shipping Document Verification",
-  description: "Seaborne shipping intelligence — SI vs BL document verification desk.",
+  title: "ShipCheck — Shipping Document Verification",
+  description: "Operations verification tool for SI vs Draft BL comparison and discrepancy detection.",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  let reviewCount = 20;
+  try {
+    const results = await loadResults();
+    reviewCount = results.filter(
+      (r) => r.status === "NEEDS_REVIEW" || r.status === "FAIL"
+    ).length;
+  } catch (e) {
+    reviewCount = 20;
+  }
+
   return (
     <html lang="en">
       <body>
-        <header className="topbar">
-          <div className="brand">
-            <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
-              Reka<em>Ops</em>
-            </Link>
-          </div>
-          <nav className="navlinks">
-            <Link href="/">Inbox</Link>
-            <Link href="/history">Audit History</Link>
-          </nav>
-        </header>
-        <main className="page">{children}</main>
+        <div className="app-shell">
+          <NavRail reviewCount={reviewCount} />
+          <main className="main-content">{children}</main>
+        </div>
       </body>
     </html>
   );

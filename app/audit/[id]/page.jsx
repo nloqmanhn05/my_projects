@@ -1,148 +1,118 @@
 import { notFound } from "next/navigation";
-import Badge from "../../../components/badge";
+import Link from "next/link";
+import { StatusChip, CategoryChip } from "../../../components/badge";
 import ActionBar from "../../../components/ActionBar";
+import SourceEvidence from "../../../components/SourceEvidence";
+import FieldComparator from "./FieldComparator";
 import { loadResults } from "../../../lib/data";
 
 export const dynamic = "force-dynamic";
 
-export const FIELD_NAMES = {
-  shipper: "Shipper",
-  consignee: "Consignee",
-  notify_party: "Notify Party",
-  port_of_loading: "Port of Loading",
-  port_of_discharge: "Port of Discharge",
-  container_count: "Container Count",
-  gross_weight_kg: "Gross Weight (kg)",
-};
-
-const REASON_TEXT = {
-  wrong_doc_type: "An attachment is not the document it claims to be (e.g. a packing list filed as the draft BL).",
-  missing_attachment: "The expected SI or BL attachment was not found.",
-  unreadable: "The document could not be read (image scan or unsupported layout).",
-  missing_value: "A compared field could not be extracted from one side.",
-};
-
-function fmt(v) {
-  if (v == null) return null;
-  return String(v);
-}
-
 export default async function AuditPage({ params }) {
   const { id } = await params;
   const results = await loadResults();
-  const record = results.find((r) => r.email_id === id);
-  if (!record) notFound();
+  const idx = results.findIndex((r) => r.email_id === id);
+  if (idx === -1) notFound();
+  const record = results[idx];
 
   const fields = record.fields ?? {};
   const docs = record.docs ?? {};
-  const attachments = record.attachments ?? [];
-  const defectSet = new Set(record.defect_fields ?? []);
-  const amendable = record.status === "MISMATCH"
-    ? record.defect_fields
-    : Object.keys(fields);
+  const defectSet = record.defect_fields ?? [];
+  const amendable =
+    record.status === "MISMATCH"
+      ? record.defect_fields
+      : Object.keys(fields);
+
+  const getStatusLabel = (status) => {
+    if (status === "OK" || status === "PASS") return "Match";
+    if (status === "MISMATCH") return "Mismatch";
+    if (status === "NEEDS_REVIEW" || status === "FAIL") return "Needs review";
+    return "Not applicable";
+  };
 
   return (
     <div>
-      <p className="sub"><a href="/">← Inbox</a></p>
-      <div className="row">
-        <h1 style={{ margin: 0 }}>{record.email_id}</h1>
-        <Badge kind="cat" label={record.category} />
-        <Badge kind={record.status} label={record.status} />
-        {record.status === "NEEDS_REVIEW" && record.review_reason && (
-          <Badge kind="NEEDS_REVIEW" label={record.review_reason} />
-        )}
-      </div>
-      <p className="sub">{record.subject || "—"}</p>
-
-      <div className="panel">
-        <dl className="kv" style={{ gridTemplateColumns: "140px 5fr 140px 3fr" }}>
-          <dt>From</dt>
-          <dd>{record.from || "—"}</dd>
-          <dt>Attachments</dt>
-          <dd>{attachments.length ? attachments.map((a) => a.split("/").pop()).join(", ") : "none"}</dd>
-        </dl>
-      </div>
-
-      {record.status === "NEEDS_REVIEW" && record.review_reason && (
-        <div className="notice">
-          <strong>Needs manual review — {record.review_reason}.</strong>
-          <div>{REASON_TEXT[record.review_reason]}</div>
-        </div>
-      )}
-      {record.status === "MISMATCH" && (
-        <div className="notice" style={{ borderColor: "var(--mismatch)" }}>
-          <strong>{record.defect_fields.length} field(s) differ between SI and draft BL:</strong>{" "}
-          {record.defect_fields.map((f) => FIELD_NAMES[f]).join(", ")}.
-        </div>
-      )}
-
-      {record.category === "BL_COMPARISON" && (
-        <>
-          <h2>Field comparison (SI → draft BL)</h2>
-          <div className="panel" style={{ overflowX: "auto" }}>
-            <table className="compare">
-              <thead>
-                <tr><th>Field</th><th>SI</th><th>Draft BL</th><th>Verdict</th></tr>
-              </thead>
-              <tbody>
-                {Object.keys(FIELD_NAMES).map((f) => {
-                  const row = fields[f] ?? {};
-                  const si = fmt(row.si);
-                  const bl = fmt(row.bl);
-                  let verdict;
-                  if (defectSet.has(f)) verdict = <span className="mismark">DIFFERS</span>;
-                  else if (row.match === true || (si && bl && row.match === true)) verdict = <span className="okmark">match</span>;
-                  else if (row.missing) verdict = <span className="namark">not extracted</span>;
-                  else if (!si && !bl) verdict = <span className="namark">—</span>;
-                  else verdict = <span className="okmark">match</span>;
-                  return (
-                    <tr key={f}>
-                      <td><strong>{FIELD_NAMES[f]}</strong>{defectSet.has(f) && <div style={{ fontSize: 11, color: "var(--mismatch)" }}>defect</div>}</td>
-                      <td>{si ?? <span className="namark">n/a</span>}</td>
-                      <td>{bl ?? <span className="namark">n/a</span>}</td>
-                      <td>{verdict}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+      {/* Header Band (~90px) */}
+      <div className="detail-header-band">
+        <div>
+          <Link href="/" className="back-link">
+            ← Verification report
+          </Link>
+          <h1 className="title-large" style={{ marginTop: 4, marginBottom: 4 }}>
+            {record.subject || `Shipment Verification — ${record.email_id}`}
+          </h1>
+          <div className="label-small" style={{ color: "var(--md-outline)" }}>
+            From: {record.from || "operations@seaborne.com"} · ID: {record.email_id}
           </div>
-        </>
+        </div>
+        <div>
+          <StatusChip
+            status={record.status}
+            label={getStatusLabel(record.status)}
+            size="large"
+          />
+        </div>
+      </div>
+
+      {/* AI Copilot Card */}
+      {record.ai_summary && (
+        <div className="ai-copilot-card">
+          <div className="ai-copilot-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+            Operational Intelligence Insight
+          </div>
+          <p className="body-medium" style={{ color: "var(--md-on-surface)", lineHeight: 1.6 }}>
+            {record.ai_summary}
+          </p>
+        </div>
       )}
 
-      <h2>Documents</h2>
-      <div className="docs">
-        {(["si", "bl"]).map((role) => {
-          const doc = docs[role];
-          if (!doc) return null;
-          return (
-            <div key={role} className="docbox">
-              <div className="row" style={{ marginBottom: 6 }}>
-                <strong>{role.toUpperCase()}: {doc.file?.split("/").pop()}</strong>
-                <Badge kind="cat" label={doc.kind ?? "?"} />
-              </div>
-              <pre>{record.body ? (role === "si" ? `[email body]\n${record.body}` : "[no separate content]") : ""}</pre>
+      {/* Two-Column Main Layout: Left 70% | Right 30% */}
+      <div className="comparison-layout">
+        {/* Left Column (~70%) */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          {/* Comparison Table */}
+          <div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+              <h2 className="title-medium">Document Field Comparison</h2>
+              <CategoryChip category={record.category} />
             </div>
-          );
-        })}
-      </div>
-
-      <p className="sub">Raw email body:</p>
-      <div className="panel">
-        <pre style={{ whiteSpace: "pre-wrap", margin: 0 }}>{record.body || "—"}</pre>
-      </div>
-
-      <h2>Decision</h2>
-      <ActionBar emailId={record.email_id} disabledFields={amendable} />
-
-      {(record.notes ?? []).length > 0 && (
-        <>
-          <h2>Pipeline notes</h2>
-          <div className="panel" style={{ color: "var(--muted)" }}>
-            {record.notes.map((n, i) => <div key={i}>· {n}</div>)}
+            <FieldComparator fields={fields} defectSet={defectSet} />
           </div>
-        </>
-      )}
+
+          {/* Email Body Preview (Collapsible) */}
+          <details style={{ background: "var(--md-surface-container-low)", padding: 16, borderRadius: "var(--radius-card)", border: "1px solid var(--md-outline-variant)" }}>
+            <summary style={{ cursor: "pointer", fontWeight: 600, fontSize: 13, color: "var(--md-on-surface)" }}>
+              Email Message Body
+            </summary>
+            <div style={{ marginTop: 12, fontSize: 13, color: "var(--md-on-surface-variant)", whiteSpace: "pre-wrap", lineHeight: 1.6 }}>
+              {record.body || "No email body text."}
+            </div>
+          </details>
+
+          {/* Action Center */}
+          <div style={{ background: "var(--md-surface-container-low)", padding: 20, borderRadius: "var(--radius-card)", border: "1px solid var(--md-outline-variant)" }}>
+            <h3 className="title-medium" style={{ marginBottom: 12 }}>Operator Decision & Remediation</h3>
+            <ActionBar
+              emailId={record.email_id}
+              status={record.status}
+              disabledFields={amendable}
+              amendmentDraft={record.amendment_draft ?? null}
+            />
+          </div>
+        </div>
+
+        {/* Right Column (~30%): Source Evidence */}
+        <div>
+          <SourceEvidence
+            docs={docs}
+            defectFields={defectSet}
+            fields={fields}
+          />
+        </div>
+      </div>
     </div>
   );
 }

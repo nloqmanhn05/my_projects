@@ -39,7 +39,7 @@ Shipping document verification. Reads an inbox, classifies each email, compares 
 | # | File | Purpose | Status |
 |---|------|---------|--------|
 | 14 | `report.py` | Readable report: email, status, mismatched fields side by side | To do |
-| 15 | `app.py` | Small web app (FastAPI or Streamlit) with the report and review queue | To do |
+| 15 | Next.js Dashboard (`app/`) | React web app with verification inbox, comparison audit, and review queue | Done |
 | 16 | `README.md` | How to run it, design decisions, notes where you differ from the reference | To do |
 
 ---
@@ -65,7 +65,7 @@ my_project/
 ├── submission.py
 ├── report.py
 ├── check_results.py
-├── app.py
+├── app/ (Next.js React Dashboard)
 ├── test_compare.py
 └── README.md
 ```
@@ -79,7 +79,7 @@ my_project/
 3. `extractor.py`
 4. `pipeline.py` and `submission.py` (first end-to-end result)
 5. `review.py`, `parsers.py`
-6. `report.py`, `app.py`, `README.md`
+6. `report.py`, Next.js React Dashboard, `README.md`
 
 **Files 1 to 8** give a working system. **Files 9 to 16** make it reliable and presentable.
 

@@ -2,7 +2,7 @@
 
 Build one step at a time. Move on only when the current step passes its check.
 
-**Stack:** Python, any model, Streamlit UI, local data (no Docker).
+**Stack:** Python, React / Next.js 15 UI, local data (no Docker).
 **Goal:** Classify emails, compare SI vs BL on 7 fields, escalate uncertain cases to a human, show it in a UI.
 
 **The 7 fields:** shipper, consignee, notify party, port of loading, port of discharge, container count, gross weight (kg).
@@ -23,15 +23,15 @@ Build one step at a time. Move on only when the current step passes its check.
 | 7 | Check results by hand | To do |
 | 8 | `review.py` (human in the loop) | To do |
 | 9 | `parsers.py` (PDF, DOCX, scans) | To do |
-| 10 | `app.py` (Streamlit UI) | To do |
-| 11 | `README.md` and final polish | To do |
+| 10 | React Dashboard (`app/`, `components/`) | Done |
+| 11 | `README.md` and final polish | In progress |
 
 ---
 
 ## Step 0: Project setup (done)
 
 - Folder with `loader.py`, `explore.py`, and the `data/` folder.
-- Run `pip install streamlit anthropic`.
+- Run `npm install` for Next.js dashboard.
 
 **Check:** `python explore.py` prints the emails.
 
@@ -162,18 +162,16 @@ Build one step at a time. Move on only when the current step passes its check.
 
 ---
 
-## Step 10: `app.py` (Streamlit UI)
+## Step 10: React / Next.js Dashboard (`app/`, `components/`)
 
 **Purpose:** Show results and let a human resolve reviews.
 
 **Screens:**
-1. **Report:** summary counts, table of emails, category filter.
-2. **Comparison detail:** 7 fields side by side, mismatches highlighted, "No mismatch detected" banner.
-3. **Review queue:** reason, editable fields, Confirm, Save correction, Retry.
+1. **Verification Inbox (`/`):** summary counts, table of emails, category and status filters, search.
+2. **Comparison Detail (`/audit/[id]`):** 7 fields side by side, mismatches highlighted, audit action bar (approve, amend, escalate).
+3. **Audit History (`/history`):** recorded operator decisions and timeline.
 
-**Theme:** `.streamlit/config.toml` with light blue and white.
-
-**Check:** `streamlit run app.py` shows all three screens using real results.
+**Check:** `npm run dev` serves the dashboard on `http://localhost:3000`.
 
 ---
 

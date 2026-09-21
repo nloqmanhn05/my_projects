@@ -1,18 +1,23 @@
-# Reka & ShipCheck — Shipping Document Verification System
+# Reka — Shipping Document Verification System
 
-**Averis x Monash Hackathon.** Automated shipping document verification system designed for maritime operations. It reads an operations desk inbox (520 emails), routes incoming messages, extracts canonical shipment fields, compares **Shipping Instructions (SI)** against **draft Bills of Lading (BL)** across 7 fields, deterministically detects discrepancies, and surfaces defects + review cases in verification dashboards.
+**Averis x Monash Hackathon.** Automated shipping document verification system designed for maritime operations. It reads an operations desk inbox (520 emails), routes incoming messages, extracts canonical shipment fields, compares **Shipping Instructions (SI)** against **draft Bills of Lading (BL)** across 7 fields, deterministically detects discrepancies, and surfaces defects + review cases in a React / Next.js verification dashboard.
 
 ---
 
 ## 1. Quick Start
 
-### Option A: Next.js Dashboard (Reka)
+### 1) Run the Verification Pipeline (Python 3.11)
 ```bash
-# 1) Run the pipeline (Python 3.11)
+# Install dependencies
+pip install openpyxl python-docx pypdf
+
+# Execute pipeline to generate submission.json and results.json
 python pipeline/run_pipeline.py     # -> data/submission.json, data/results.json
 python pipeline/validate.py         # 0 errors expected
+```
 
-# 2) Run the dashboard (Node 18+, Next.js 15)
+### 2) Run the Dashboard (React / Next.js 15)
+```bash
 npm install
 npm run dev                         # http://localhost:3000
 ```
@@ -20,23 +25,6 @@ Pages:
 - `/` — verification inbox (filters, paging, search over 520 emails)
 - `/audit/email_XXX` — field-by-field SI vs BL comparison + decision bar (approve / amend / request amendment / escalate)
 - `/history` — recorded audit decisions
-
-### Option B: Streamlit Dashboard & Standalone Pipeline (ShipCheck)
-```bash
-# 1) Install Python dependencies
-pip install openpyxl python-docx pypdf streamlit
-
-# 2) Run deterministic tests & pipeline
-python compare.py
-python pipeline.py                  # Process all 520 emails
-
-# 3) Launch Streamlit UI
-streamlit run app.py
-```
-Provides:
-- **Executive Metrics**: Category breakdown, defect detection rate, escalation rate.
-- **Document Inspector**: Interactive side-by-side comparison of all 7 fields with diff badges.
-- **HITL Review Queue**: Inspect and resolve escalated cases with direct source evidence.
 
 ---
 
@@ -52,16 +40,16 @@ Provides:
      - `unreadable`: Attachment is a corrupted file or image-only scan with no extractable text.
      - `missing_value`: Required shipment field is omitted or placeholder (`N/A`, `TBA`, `___`).
 3. **Multi-Format Ingestion**:
-   - Readers supporting `.txt`, `.docx` (Word tables & paragraphs), `.xlsx` (Excel sheets), and `.pdf`.
+   - Universal readers supporting `.txt`, `.docx` (Word tables & paragraphs), `.xlsx` (Excel sheets), and `.pdf`.
 
 ---
 
 ## 3. Repository Structure
 
 ```
-├── app/                         # Next.js 15 web application
-├── components/                  # Next.js UI components
-├── lib/                         # Next.js data and audit helpers
+├── app/                         # Next.js 15 App Router (React pages)
+├── components/                  # React UI components (EmailsTable, ActionBar, badges)
+├── lib/                         # Next.js data store and server actions
 ├── pipeline/                    # Primary verification pipeline modules
 │   ├── classify.py              # Email classification
 │   ├── compare.py               # SI vs BL field-by-field comparison
@@ -69,7 +57,6 @@ Provides:
 │   ├── run_pipeline.py          # End-to-end pipeline runner
 │   ├── score.py                 # Evaluation against ground truth
 │   └── validate.py              # Submission schema validator
-├── app.py                       # Streamlit review dashboard
 ├── classifier.py                # Standalone email classifier
 ├── compare.py                   # Standalone field comparison & normalization
 ├── extractor.py                 # 7-field structured document extractor
