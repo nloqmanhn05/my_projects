@@ -55,7 +55,17 @@ def build_result(email, inbox):
     }
 
     if category != "BL_COMPARISON":
-        return record
+        att_data = []
+        for a in atts:
+            txt, fmt, err = read_doc(inbox, a)
+            att_data.append({
+                "file": a,
+                "format": fmt,
+                "read_error": err,
+                "text": (txt or "")[:8000],
+            })
+        record["attachments_data"] = att_data
+        return _finish_record(record)
 
     si_path = next((a for a in atts if attach_role(a) == "si"), None)
     bl_path = next((a for a in atts if attach_role(a) == "bl"), None)
@@ -64,13 +74,16 @@ def build_result(email, inbox):
         record["status"] = "NEEDS_REVIEW"
         record["review_reason"] = "missing_attachment"
         record["notes"].append("Expected SI and/or BL attachment is missing.")
-        return record
+        return _finish_record(record)
 
     si_text, si_fmt, si_err = read_doc(inbox, si_path)
     bl_text, bl_fmt, bl_err = read_doc(inbox, bl_path)
-    for p, kind, err in ((si_path, "si", si_err), (bl_path, "bl", bl_err)):
+    for p, kind, err, txt in ((si_path, "si", si_err, si_text), (bl_path, "bl", bl_err, bl_text)):
         record["docs"][kind] = {
-            "file": p, "format": p.rsplit(".", 1)[-1].lower(), "read_error": err,
+            "file": p,
+            "format": p.rsplit(".", 1)[-1].lower(),
+            "read_error": err,
+            "text": (txt or "")[:8000],
         }
 
     if si_err or bl_err:
@@ -81,7 +94,7 @@ def build_result(email, inbox):
         else:
             record["review_reason"] = "unreadable"
             record["notes"].append("Attachment could not be parsed.")
-        return record
+        return _finish_record(record)
 
     si_kind = detect_kind(si_text, "si")
     bl_kind = detect_kind(bl_text, "bl")
@@ -96,13 +109,13 @@ def build_result(email, inbox):
             "Attachment content does not match its expected role "
             f"(SI->{si_kind}, BL->{bl_kind})."
         )
-        return record
+        return _finish_record(record)
 
     if si_kind == "unreadable" or bl_kind == "unreadable":
         record["status"] = "NEEDS_REVIEW"
         record["review_reason"] = "unreadable"
         record["notes"].append("Attachment yielded no extractable text (scanned?).")
-        return record
+        return _finish_record(record)
 
     gemini_used = False
     if gemini.available():
@@ -145,7 +158,7 @@ def build_result(email, inbox):
     else:
         record["status"] = "OK"
         record["notes"].append("All 7 compared fields match.")
-    return record
+    return _finish_record(record)
 
 
 def _t(items):
@@ -189,3 +202,105 @@ def to_submission_entry(record):
         "defect_fields": record["defect_fields"] or [],
         "has_defect": record["has_defect"],
     }
+
+
+FIELD_TITLES = {
+    "shipper": "Shipper",
+    "consignee": "Consignee",
+    "notify_party": "Notify Party",
+    "port_of_loading": "Port of Loading",
+    "port_of_discharge": "Port of Discharge",
+    "container_count": "Container Count",
+    "gross_weight_kg": "Gross Weight (kg)",
+}
+
+
+def _finish_record(record):
+    """Attach AI summary narrative and carrier amendment draft before returning."""
+    record["ai_summary"] = generate_ai_summary(record)
+    record["amendment_draft"] = generate_amendment_draft(record)
+    return record
+
+
+def generate_ai_summary(record):
+    cat = record.get("category")
+    status = record.get("status")
+    reason = record.get("review_reason")
+    defects = record.get("defect_fields") or []
+    fields = record.get("fields") or {}
+
+    if cat != "BL_COMPARISON":
+        if cat == "INVOICE_QUERY":
+            return "Commercial Inquiry: Involves freight invoices, detention, demurrage, or billing disputes. Route to Commercial & Finance desk."
+        elif cat == "SI_REQUEST":
+            return "Booking Desk: Request or submission of initial Shipping Instructions. Verify booking reference and dispatch standard SI template."
+        elif cat == "SPAM":
+            return "Quarantine Warning: Automated security filter flagged solicitation, lottery, or phishing indicators. Safe to archive or block sender."
+        else:
+            return "Operations Desk: Operational notification regarding vessel schedules, berthing, port updates, or general logistics notices."
+
+    if status == "MISMATCH":
+        diff_names = [FIELD_TITLES.get(f, f) for f in defects]
+        snippets = []
+        for f in defects[:2]:
+            row = fields.get(f) or {}
+            si_v = str(row.get("si", ""))
+            bl_v = str(row.get("bl", ""))
+            if len(si_v) > 35:
+                si_v = si_v[:32] + "..."
+            if len(bl_v) > 35:
+                bl_v = bl_v[:32] + "..."
+            snippets.append(f"{FIELD_TITLES.get(f, f)} differs: SI='{si_v}' vs BL='{bl_v}'")
+        detail = ". ".join(snippets)
+        return f"Defect Alert: Discrepancy detected across {len(defects)} field(s) ({', '.join(diff_names)}). {detail}."
+
+    if status == "NEEDS_REVIEW":
+        if reason == "wrong_doc_type":
+            return "Escalation Required: Attachment content does not match expected document role (e.g. Packing List attached instead of Draft BL). Reassign document role or request Draft BL."
+        elif reason == "missing_attachment":
+            return "Escalation Required: Expected Shipping Instruction (SI) or Draft Bill of Lading (BL) attachment is missing from the email. Follow up with sender to provide document."
+        elif reason == "unreadable":
+            return "Escalation Required: Document contains scanned images or unreadable formatting yielding no digital text. Request digital text copy or trigger OCR."
+        elif reason == "missing_value":
+            return "Escalation Required: Document layout is readable but one or more mandatory comparison fields could not be extracted. Manual operator audit needed."
+        return f"Escalation Required: Human operator review needed ({reason})."
+
+    return "Verification Passed: All 7 canonical fields (Shipper, Consignee, Notify Party, Ports, Container Count, Gross Weight) match between SI and Draft BL within approved tolerances."
+
+
+def generate_amendment_draft(record):
+    if record.get("status") != "MISMATCH":
+        return None
+
+    eid = record.get("email_id", "email_ref")
+    subj = record.get("subject", "BL Verification")
+    defects = record.get("defect_fields") or []
+    fields = record.get("fields") or {}
+
+    lines = [
+        f"Subject: AMENDMENT REQUEST — Draft BL Verification [{eid}]",
+        "",
+        "Dear Carrier Documentation Team,",
+        "",
+        f"We have reviewed the draft Bill of Lading submitted under reference '{subj}'.",
+        "The following discrepancies were identified against our approved Shipping Instruction (SI):",
+        "",
+    ]
+    for i, f in enumerate(defects, 1):
+        name = FIELD_TITLES.get(f, f)
+        row = fields.get(f) or {}
+        si_val = row.get("si", "N/A")
+        bl_val = row.get("bl", "N/A")
+        lines.append(f"{i}. {name}:")
+        lines.append(f"   - Current Draft BL: {bl_val}")
+        lines.append(f"   - Approved SI     : {si_val}")
+        lines.append(f"   - Required Action : Amend Draft BL to strictly reflect Approved SI.")
+        lines.append("")
+
+    lines.extend([
+        "Please confirm receipt and provide the corrected draft Bill of Lading at your earliest convenience.",
+        "",
+        "Best regards,",
+        "Reka Shipping Documentation Desk",
+    ])
+    return "\n".join(lines)

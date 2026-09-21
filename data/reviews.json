@@ -15,12 +15,14 @@
         "file": "attachments/email_501_SI.txt",
         "format": "txt",
         "read_error": null,
+        "text": "SHIPPING INSTRUCTION\r\n========================================\r\n\r\nShipper: APRIL FINE PAPER TRADING (MIDDLE EAST) FZE\r\n  #813, 4 EA, DUBAI AIRPORT FREE ZONE; P.O. BOX: 293775, DUBAI, UNITED ARAB EMIRATES\r\nCONSIGNEE: KPP-ANTALIS (SINGAPORE) PTE. LTD.\r\n  8 TEMASEK BOULEVARD; #42-01 SUNTEC TOWER 3; SINGAPORE 038988\r\nNotify Party: KPP-ANTALIS (SINGAPORE) PTE. LTD.\r\nLoad Port: RUGAO/NANTONG/SHANGHAI, CHINA (CNSHA)\r\nPort of Discharge (POD): HOUSTON, US (USHOU)\r\nNo. of Containers or Packages: 5 x 40'HC\r\nGross Wt (kgs): 100,225 KG\r\nExport Carrier (vessel, voyage): MARCOPOLO 810 V.BS005\r\nVoy.: 051NW1\r\nDescription of Goods: UNCOATED WOODFREE PAPER IN REAMS\r\nHS Code: 48025700\r\nBOOKING NO.: I009004365\r\nOC No.: 5RSG-51584\r\nFreight: PREPAID\r\n",
         "kind": "si"
       },
       "bl": {
         "file": "attachments/email_501_BL.txt",
         "format": "txt",
         "read_error": null,
+        "text": "COMMERCIAL INVOICE\r\n========================================\r\n\r\nInvoice No.: 5250078266\r\nInvoice Date: 16-JAN-2026\r\nSeller: APRIL FINE PAPER TRADING (MIDDLE EAST) FZE\r\nBuyer: KPP-ANTALIS (SINGAPORE) PTE. LTD.\r\nBooking Ref: I009004365\r\n\r\nDescription                         Qty        Unit Price       Amount (USD)\r\nUNCOATED WOODFREE PAPER IN R       500     45.00           22,500\r\n\r\nTotal Amount: USD 22,500.00\r\nPayment Terms: 30 days from B/L date\r\nIncoterms: CFR\r\n\r\n*** THIS IS A COMMERCIAL INVOICE - NOT A SHIPPING INSTRUCTION ***\r\n",
         "kind": "other"
       }
     },
@@ -30,7 +32,9 @@
     ],
     "notes": [
       "Attachment content does not match its expected role (SI->si, BL->other)."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Attachment content does not match expected document role (e.g. Packing List attached instead of Draft BL). Reassign document role or request Draft BL.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_502",
@@ -48,12 +52,14 @@
         "file": "attachments/email_502_SI.txt",
         "format": "txt",
         "read_error": null,
+        "text": "SHIPPING INSTRUCTION\r\n========================================\r\n\r\nShipper (Principal or Seller): ASIA PACIFIC PAPERBOARD TRADING PTE LTD\r\n  80 RAFFLES PLACE, #50-01 UOB PLAZA 1; SINGAPORE 048624\r\nConsignee (Non-Negotiable): ROXCEL TRADING GMBH\r\n  OPERNRING 3-5; 1010 VIENNA, AUSTRIA\r\nNotify Party/Intermediate Consignee: ROXCEL TRADING GMBH\r\nPOL: SINGAPORE (SGSIN)\r\nPort of Discharge: ASHDOD, ISRAEL (ILASH)\r\nContainer Count: 1 x 40'HC\r\nGross Weight (KG): 22,318 KG\r\nVessel Name: NAP 914 V.BS007\r\nVoyage: BS012\r\nCommodity: PAPERONE DIGITAL COPIER PAPER\r\nHS Code: 48025600\r\nBooking No.: MCLSINJEA2508070\r\nOC No.: 5RSG-63369\r\nFreight: PREPAID\r\n",
         "kind": "si"
       },
       "bl": {
         "file": "attachments/email_502_BL.txt",
         "format": "txt",
         "read_error": null,
+        "text": "PACKING LIST\r\n========================================\r\n\r\nShipper: ASIA PACIFIC PAPERBOARD TRADING PTE LTD\r\nConsignee: ROXCEL TRADING GMBH\r\nBooking Ref: MCLSINJEA2508070\r\nCommodity: PAPERONE DIGITAL COPIER PAPER\r\n\r\nCarton No.      Net Wt (kg)     Gross Wt (kg)     Dimensions\r\nCTN-001          571             635             120x100x110\r\n\r\n*** PACKING LIST ONLY - NO PORT OR VESSEL DETAILS ***\r\n",
         "kind": "other"
       }
     },
@@ -63,7 +69,9 @@
     ],
     "notes": [
       "Attachment content does not match its expected role (SI->si, BL->other)."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Attachment content does not match expected document role (e.g. Packing List attached instead of Draft BL). Reassign document role or request Draft BL.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_503",
@@ -81,12 +89,14 @@
         "file": "attachments/email_503_SI.txt",
         "format": "txt",
         "read_error": null,
+        "text": "SHIPPING INSTRUCTION\r\n========================================\r\n\r\nShipper: APRIL FAR EAST (M) SDN BHD\r\n  TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, NO. 8 JALAN KERINCHI; 59200 KUALA LUMPUR, MALAYSIA\r\nConsignee (Non-Negotiable): INTERNATIONAL FOREST PRODUCTS LLC\r\n  6 HOLLIS STREET; SUITE 100; FRAMINGHAM, MA 01702, USA\r\nNotify Party: INTERNATIONAL FOREST PRODUCTS LLC\r\nLoad Port: NHAVA SHEVA, INDIA (INNSA)\r\nDischarge Port: HOCHIMINH CITY, VIETNAM (VNSGN)\r\nContainer Count: 1 x 20'FCL\r\nGross Weight毛重(KGS): 21,772 KG\r\nExport Carrier (vessel, voyage): PACIFIC SUN 1 V.251073E\r\nVoy. No: 11S\r\nDescription: FUJITO PAPERONE INKJET PAPER\r\nHS Code: 48025500\r\nBooking Ref: 44287738\r\nOC No.: 5ALT-36381\r\nFreight: PREPAID\r\n",
         "kind": "si"
       },
       "bl": {
         "file": "attachments/email_503_BL.txt",
         "format": "txt",
         "read_error": null,
+        "text": "CERTIFICATE OF ORIGIN\r\n========================================\r\n\r\nExporter: APRIL FAR EAST (M) SDN BHD\r\nConsignee: INTERNATIONAL FOREST PRODUCTS LLC\r\nCountry of Origin: MALAYSIA / INDONESIA / CHINA\r\nHS Code: 48025500\r\nDescription: FUJITO PAPERONE INKJET PAPER\r\nCertificate No.: COO-50388\r\nIssuing Authority: MINISTRY OF INTERNATIONAL TRADE\r\n\r\n*** CERTIFICATE OF ORIGIN - NOT AN SI OR BL ***\r\n",
         "kind": "other"
       }
     },
@@ -96,7 +106,9 @@
     ],
     "notes": [
       "Attachment content does not match its expected role (SI->si, BL->other)."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Attachment content does not match expected document role (e.g. Packing List attached instead of Draft BL). Reassign document role or request Draft BL.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_504",
@@ -114,12 +126,14 @@
         "file": "attachments/email_504_SI.txt",
         "format": "txt",
         "read_error": null,
+        "text": "SHIPPING INSTRUCTION\r\n========================================\r\n\r\nShipper (Principal or Seller): ASIA PACIFIC PAPERBOARD TRADING PTE LTD\r\n  80 RAFFLES PLACE, #50-01 UOB PLAZA 1; SINGAPORE 048624\r\nCONSIGNEE: PACIFIC OFFICE (M) SDN BHD\r\n  LOT 6, JALAN P/7; SECTION 13, 43650 BANDAR BARU BANGI; SELANGOR, MALAYSIA\r\nNotify: PACIFIC OFFICE (M) SDN BHD\r\nLoad Port: BUATAN, INDONESIA (IDBUA)\r\nDischarge Port: ASHDOD, ISRAEL (ILASH)\r\nTotal Containers: 10 x 20'FCL\r\nGross Wt (kgs): 221,170 KG\r\nVessel Name: MMSS 2507 V.257087E\r\nVoy. No: BS012\r\nDescription of Goods: PAPERBOARD\r\nHS Code: 48109200\r\nBooking Ref: MCLSINJEA2558631\r\nOC No.: 5AKR-44170\r\nFreight: PREPAID\r\n",
         "kind": "si"
       },
       "bl": {
         "file": "attachments/email_504_BL.txt",
         "format": "txt",
         "read_error": null,
+        "text": "PACKING LIST\r\n========================================\r\n\r\nShipper: ASIA PACIFIC PAPERBOARD TRADING PTE LTD\r\nConsignee: PACIFIC OFFICE (M) SDN BHD\r\nBooking Ref: MCLSINJEA2558631\r\nCommodity: PAPERBOARD\r\n\r\nCarton No.      Net Wt (kg)     Gross Wt (kg)     Dimensions\r\nCTN-001          532             623             120x100x110\r\nCTN-002          505             521             120x100x110\r\nCTN-003          467             603             120x100x110\r\nCTN-004          508             621             120x100x110\r\n\r\n*** PACKING LIST ONLY - NO PORT OR VESSEL DETAILS ***\r\n",
         "kind": "other"
       }
     },
@@ -129,7 +143,9 @@
     ],
     "notes": [
       "Attachment content does not match its expected role (SI->si, BL->other)."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Attachment content does not match expected document role (e.g. Packing List attached instead of Draft BL). Reassign document role or request Draft BL.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_505",
@@ -147,12 +163,14 @@
         "file": "attachments/email_505_SI.txt",
         "format": "txt",
         "read_error": null,
+        "text": "SHIPPING INSTRUCTION\r\n========================================\r\n\r\nShipper (Principal or Seller): APRIL FINE PAPER TRADING\r\n  ON BEHALF OF VITAL SOLUTIONS PTE LTD; 77 ROBINSON ROAD, #21-01; SINGAPORE 068896\r\nConsignee (Non-Negotiable): EAST BRIGHT FZ-LLC\r\n  RAKEZ AMENITY CENTER; AL HAMRA INDUSTRIAL ZONE, RAK, UAE\r\nNotify: EAST BRIGHT FZ-LLC\r\nPORT OF LOADING: NANTONG, CHINA (CNNTG)\r\nDischarge Port: CEBU, PHILIPPINES (PHCEB)\r\nTotal Containers: 12 x 40'HC\r\nGROSS WEIGHT: 265,560 KG\r\nVessel Name: LE HAVRE V.QI540A\r\nVoy.: BS012\r\nKinds of Packages; Description of Goods: FUJITO PAPERONE INKJET PAPER\r\nHS Code: 48025500\r\nBOOKING NO.: PSGSE4489880\r\nOC No.: 5AKR-31538\r\nFreight: PREPAID\r\n",
         "kind": "si"
       },
       "bl": {
         "file": "attachments/email_505_BL.txt",
         "format": "txt",
         "read_error": null,
+        "text": "CERTIFICATE OF ORIGIN\r\n========================================\r\n\r\nExporter: APRIL FINE PAPER TRADING\r\nConsignee: EAST BRIGHT FZ-LLC\r\nCountry of Origin: MALAYSIA / INDONESIA / CHINA\r\nHS Code: 48025500\r\nDescription: FUJITO PAPERONE INKJET PAPER\r\nCertificate No.: COO-45486\r\nIssuing Authority: MINISTRY OF INTERNATIONAL TRADE\r\n\r\n*** CERTIFICATE OF ORIGIN - NOT AN SI OR BL ***\r\n",
         "kind": "other"
       }
     },
@@ -162,7 +180,9 @@
     ],
     "notes": [
       "Attachment content does not match its expected role (SI->si, BL->other)."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Attachment content does not match expected document role (e.g. Packing List attached instead of Draft BL). Reassign document role or request Draft BL.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_506",
@@ -179,7 +199,9 @@
     "attachments": [],
     "notes": [
       "Expected SI and/or BL attachment is missing."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Expected Shipping Instruction (SI) or Draft Bill of Lading (BL) attachment is missing from the email. Follow up with sender to provide document.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_507",
@@ -198,7 +220,9 @@
     ],
     "notes": [
       "Expected SI and/or BL attachment is missing."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Expected Shipping Instruction (SI) or Draft Bill of Lading (BL) attachment is missing from the email. Follow up with sender to provide document.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_508",
@@ -215,7 +239,9 @@
     "attachments": [],
     "notes": [
       "Expected SI and/or BL attachment is missing."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Expected Shipping Instruction (SI) or Draft Bill of Lading (BL) attachment is missing from the email. Follow up with sender to provide document.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_509",
@@ -234,7 +260,9 @@
     ],
     "notes": [
       "Expected SI and/or BL attachment is missing."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Expected Shipping Instruction (SI) or Draft Bill of Lading (BL) attachment is missing from the email. Follow up with sender to provide document.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_510",
@@ -251,7 +279,9 @@
     "attachments": [],
     "notes": [
       "Expected SI and/or BL attachment is missing."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Expected Shipping Instruction (SI) or Draft Bill of Lading (BL) attachment is missing from the email. Follow up with sender to provide document.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_511",
@@ -268,12 +298,14 @@
       "si": {
         "file": "attachments/email_511_SI.txt",
         "format": "txt",
-        "read_error": null
+        "read_error": null,
+        "text": "SHIPPING INSTRUCTION\r\n========================================\r\n\r\nShipper: APRIL FINE PAPER TRADING\r\n  ON BEHALF OF VITAL SOLUTIONS PTE LTD; 77 ROBINSON ROAD, #21-01; SINGAPORE 068896\r\nTo the Order of: AL GURG STATIONERY LLC\r\n  P.O. BOX 5069; DUBAI, UNITED ARAB EMIRATES\r\nNotify: AL GURG STATIONERY LLC\r\nPOL: NHAVA SHEVA, INDIA (INNSA)\r\nPort of Discharge (POD): KOPER, SLOVENIA (SIKOP)\r\nTotal Containers: 6 x 40'HC\r\nGross Weight毛重(KGS): 134,904 KG\r\nVessel Name: SOLID 16 V.044NW2\r\nVoyage: 2545E\r\nDescription: COATED IVORY BOARD\r\nHS Code: 48105900\r\nBooking No.: MCLSINJEA2529384\r\nOC No.: 5SUS-40134\r\nFreight: PREPAID\r\n"
       },
       "bl": {
         "file": "attachments/email_511_BL.pdf",
         "format": "pdf",
-        "read_error": "parse_error: Stream has ended unexpectedly"
+        "read_error": "parse_error: Stream has ended unexpectedly",
+        "text": ""
       }
     },
     "attachments": [
@@ -282,7 +314,9 @@
     ],
     "notes": [
       "Attachment could not be parsed."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Document contains scanned images or unreadable formatting yielding no digital text. Request digital text copy or trigger OCR.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_512",
@@ -300,12 +334,14 @@
         "file": "attachments/email_512_SI.pdf",
         "format": "pdf",
         "read_error": null,
+        "text": "",
         "kind": "unreadable"
       },
       "bl": {
         "file": "attachments/email_512_BL.pdf",
         "format": "pdf",
         "read_error": null,
+        "text": "",
         "kind": "unreadable"
       }
     },
@@ -315,7 +351,9 @@
     ],
     "notes": [
       "Attachment yielded no extractable text (scanned?)."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Document contains scanned images or unreadable formatting yielding no digital text. Request digital text copy or trigger OCR.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_513",
@@ -333,12 +371,14 @@
         "file": "attachments/email_513_SI.pdf",
         "format": "pdf",
         "read_error": null,
+        "text": "",
         "kind": "unreadable"
       },
       "bl": {
         "file": "attachments/email_513_BL.pdf",
         "format": "pdf",
         "read_error": null,
+        "text": "",
         "kind": "unreadable"
       }
     },
@@ -348,7 +388,9 @@
     ],
     "notes": [
       "Attachment yielded no extractable text (scanned?)."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Document contains scanned images or unreadable formatting yielding no digital text. Request digital text copy or trigger OCR.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_514",
@@ -366,12 +408,14 @@
         "file": "attachments/email_514_SI.pdf",
         "format": "pdf",
         "read_error": null,
+        "text": "",
         "kind": "unreadable"
       },
       "bl": {
         "file": "attachments/email_514_BL.pdf",
         "format": "pdf",
         "read_error": null,
+        "text": "",
         "kind": "unreadable"
       }
     },
@@ -381,7 +425,9 @@
     ],
     "notes": [
       "Attachment yielded no extractable text (scanned?)."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Document contains scanned images or unreadable formatting yielding no digital text. Request digital text copy or trigger OCR.",
+    "amendment_draft": null
   },
   {
     "email_id": "email_515",
@@ -398,12 +444,14 @@
       "si": {
         "file": "attachments/email_515_SI.txt",
         "format": "txt",
-        "read_error": null
+        "read_error": null,
+        "text": "SHIPPING INSTRUCTION\r\n========================================\r\n\r\nShipper: APRIL FINE PAPER TRADING\r\n  ON BEHALF OF VITAL SOLUTIONS PTE LTD; 77 ROBINSON ROAD, #21-01; SINGAPORE 068896\r\nTo the Order of: 3S PAPER PRODUCTS SDN BHD\r\n  NO 12, JALAN INDUSTRI 3/6; RAWANG INTEGRATED INDUSTRIAL PARK; 48000 RAWANG, SELANGOR, MALAYSIA\r\nNotify: 3S PAPER PRODUCTS SDN BHD\r\nPOL: BUATAN, INDONESIA (IDBUA)\r\nDischarge Port: AQABA, JORDAN (JOAQB)\r\nNo. of Containers: 1 x 40'HC\r\nGross Weight (KG): 21,949 KG\r\nOcean Vessel: INDO SUKSES 65 V.51NW1\r\nVoy. No: BS012\r\nCommodity: ASIA SYMBOL FOOD SERVICE BOARD (CUPSTOCK/HI-BULK) - ALLINONE\r\nHS Code: 48109200\r\nBOOKING NO.: SIJ9650826\r\nOC No.: 5RSG-95826\r\nFreight: PREPAID\r\n"
       },
       "bl": {
         "file": "attachments/email_515_BL.pdf",
         "format": "pdf",
-        "read_error": "parse_error: Stream has ended unexpectedly"
+        "read_error": "parse_error: Stream has ended unexpectedly",
+        "text": ""
       }
     },
     "attachments": [
@@ -412,6 +460,8 @@
     ],
     "notes": [
       "Attachment could not be parsed."
-    ]
+    ],
+    "ai_summary": "Escalation Required: Document contains scanned images or unreadable formatting yielding no digital text. Request digital text copy or trigger OCR.",
+    "amendment_draft": null
   }
 ]
