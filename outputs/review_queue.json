@@ -1,0 +1,346 @@
+{
+  "email_501": {
+    "email_id": "email_501",
+    "reason": "wrong_doc_type",
+    "detail": "Attachment 'attachments/email_501_BL.txt' is not a valid SI or BL.",
+    "subject": "RE_ TO CONFIRM DOCS _ 5RSG-51584 _ HOUSTON_US _ KPP-ANTALIS (SINGAPORE) PTE. LTD. _ YMJAI905670867",
+    "attachments": [
+      "attachments/email_501_SI.txt",
+      "attachments/email_501_BL.txt"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_502": {
+    "email_id": "email_502",
+    "reason": "wrong_doc_type",
+    "detail": "Attachment 'attachments/email_502_BL.txt' is not a valid SI or BL.",
+    "subject": "TO CONFIRM DOCS _ 5RSG-63369 _ ASHDOD_ISRAEL _ ROXCEL TRADING GMBH _ MCLSIN5054296",
+    "attachments": [
+      "attachments/email_502_SI.txt",
+      "attachments/email_502_BL.txt"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_503": {
+    "email_id": "email_503",
+    "reason": "wrong_doc_type",
+    "detail": "Attachment 'attachments/email_503_BL.txt' is not a valid SI or BL.",
+    "subject": "AFEMY - HOCHIMINH CITY_VIETNAM - HAPAG(HLCUSIN016481880) - 5ALT-36381 - 5250076432 - INTERNATIONAL FOREST PRODUCTS LLC - OA_CFR",
+    "attachments": [
+      "attachments/email_503_SI.txt",
+      "attachments/email_503_BL.txt"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_504": {
+    "email_id": "email_504",
+    "reason": "wrong_doc_type",
+    "detail": "Attachment 'attachments/email_504_BL.txt' is not a valid SI or BL.",
+    "subject": "REQUEST BL DRAFT _ PO 26823_ PAPERBOARD__210MT",
+    "attachments": [
+      "attachments/email_504_SI.txt",
+      "attachments/email_504_BL.txt"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_505": {
+    "email_id": "email_505",
+    "reason": "wrong_doc_type",
+    "detail": "Attachment 'attachments/email_505_BL.txt' is not a valid SI or BL.",
+    "subject": "RE_ AFEMY - CEBU_PHILIPPINES - OOCL(OOLU8243017646) - 5AKR-31538 - 5250078824 - EAST BRIGHT FZ-LLC - DP",
+    "attachments": [
+      "attachments/email_505_SI.txt",
+      "attachments/email_505_BL.txt"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_506": {
+    "email_id": "email_506",
+    "reason": "missing_attachment",
+    "detail": "Expected 2 attachments, found 0",
+    "subject": "RE_ AFRT - LONG BEACH_US - EVER(EGLV433335384951) - 5RSG-19787 - 5250071809 - EAST BRIGHT FZ-LLC - OA_CFR",
+    "attachments": [],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_507": {
+    "email_id": "email_507",
+    "reason": "missing_attachment",
+    "detail": "Expected 2 attachments, found 1",
+    "subject": "RE_ TO CONFIRM DOCS _ 5AKR-00230 _ KOPER_SLOVENIA _ 3S PAPER PRODUCTS SDN BHD _ YMJAI530601198",
+    "attachments": [
+      "attachments/email_507_SI.txt"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_508": {
+    "email_id": "email_508",
+    "reason": "missing_attachment",
+    "detail": "Expected 2 attachments, found 0",
+    "subject": "AIE - CALLAO_PERU - EVER(EGLV577449160936) - 5RUS-14911 - 5250078941 - KPP-ANTALIS (SINGAPORE) PTE. LTD. - LC",
+    "attachments": [],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_509": {
+    "email_id": "email_509",
+    "reason": "missing_attachment",
+    "detail": "Expected 2 attachments, found 1",
+    "subject": "AFRT - CALLAO_PERU - YM(YMJAI926322399) - 5RVN-11404 - 5250072886 - INTERNATIONAL FOREST PRODUCTS LLC - CFR",
+    "attachments": [
+      "attachments/email_509_SI.txt"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_510": {
+    "email_id": "email_510",
+    "reason": "missing_attachment",
+    "detail": "Expected 2 attachments, found 0",
+    "subject": "TO CONFIRM DOCS _ 5RVN-06271 _ MERSIN_TURKEY _ SAFQA LIMITED _ OOLU0811260030",
+    "attachments": [],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_511": {
+    "email_id": "email_511",
+    "reason": "unreadable",
+    "detail": "Attachment 'attachments/email_511_BL.pdf' is corrupted, empty, or unreadable scan.",
+    "subject": "RE_ TO CONFIRM DOCS _ 5SUS-40134 _ KOPER_SLOVENIA _ AL GURG STATIONERY LLC _ MCLSIN6917768",
+    "attachments": [
+      "attachments/email_511_SI.txt",
+      "attachments/email_511_BL.pdf"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_512": {
+    "email_id": "email_512",
+    "reason": "unreadable",
+    "detail": "Attachment 'attachments/email_512_SI.pdf' is corrupted, empty, or unreadable scan.",
+    "subject": "REQUEST BL DRAFT _ PO 25041_ PAPERONE DIGITAL COPIER PAPER__120MT",
+    "attachments": [
+      "attachments/email_512_SI.pdf",
+      "attachments/email_512_BL.pdf"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_513": {
+    "email_id": "email_513",
+    "reason": "unreadable",
+    "detail": "Attachment 'attachments/email_513_SI.pdf' is corrupted, empty, or unreadable scan.",
+    "subject": "RE_ AFEMY - VALPARAISO_CHILE - OOCL(OOLU4899718428) - 5RUS-91408 - 5250074993 - KPP-ANTALIS (SINGAPORE) PTE. LTD. - DP",
+    "attachments": [
+      "attachments/email_513_SI.pdf",
+      "attachments/email_513_BL.pdf"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_514": {
+    "email_id": "email_514",
+    "reason": "unreadable",
+    "detail": "Attachment 'attachments/email_514_SI.pdf' is corrupted, empty, or unreadable scan.",
+    "subject": "RE_ Draft BL LE HAVRE V.QI540A NANTONG - amend BL 042",
+    "attachments": [
+      "attachments/email_514_SI.pdf",
+      "attachments/email_514_BL.pdf"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_515": {
+    "email_id": "email_515",
+    "reason": "unreadable",
+    "detail": "Attachment 'attachments/email_515_BL.pdf' is corrupted, empty, or unreadable scan.",
+    "subject": "AFRT - AQABA_JORDAN - CMA(SIJ4056129) - 5RSG-95826 - 5250074186 - 3S PAPER PRODUCTS SDN BHD - OA_CFR",
+    "attachments": [
+      "attachments/email_515_SI.txt",
+      "attachments/email_515_BL.pdf"
+    ],
+    "evidence": {},
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_516": {
+    "email_id": "email_516",
+    "reason": "missing_value",
+    "detail": "Required field(s) missing in SI: gross_weight_kg",
+    "subject": "RE_ AFEMY - CONAKRY_GUINEA - MONTER(MCLSIN6123859) - 5RCY-68239 - 5250074840 - KPP-ANTALIS (SINGAPORE) PTE. LTD. - OA_CFR",
+    "attachments": [
+      "attachments/email_516_SI.txt",
+      "attachments/email_516_BL.txt"
+    ],
+    "evidence": {
+      "si_fields": {
+        "shipper": "APRIL FINE PAPER TRADING",
+        "consignee": "KPP-ANTALIS (SINGAPORE) PTE. LTD.",
+        "notify_party": "KPP-ANTALIS (SINGAPORE) PTE. LTD.",
+        "port_of_loading": "NHAVA SHEVA, INDIA",
+        "port_of_discharge": "CONAKRY, GUINEA",
+        "container_count": "10 x 20'FCL",
+        "gross_weight_kg": null
+      },
+      "bl_fields": {
+        "shipper": "APRIL FINE PAPER TRADING\n  ON BEHALF OF VITAL SOLUTIONS PTE LTD; 77 ROBINSON ROAD, #21-01; SINGAPORE 068896",
+        "consignee": "KPP-ANTALIS (SINGAPORE) PTE. LTD.\n  8 TEMASEK BOULEVARD; #42-01 SUNTEC TOWER 3; SINGAPORE 038988",
+        "notify_party": "KPP-ANTALIS (SINGAPORE) PTE. LTD.",
+        "port_of_loading": "NHAVA SHEVA, INDIA (INNSA)",
+        "port_of_discharge": "CONAKRY, GUINEA (GNCKY)",
+        "container_count": "10 x 20'FCL",
+        "gross_weight_kg": "235,550 KG"
+      }
+    },
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_517": {
+    "email_id": "email_517",
+    "reason": "missing_value",
+    "detail": "Required field(s) missing in SI: port_of_loading, port_of_discharge",
+    "subject": "RE_ TO CONFIRM DOCS _ 5RCY-95001 _ CALLAO_PERU _ BALL & DOGGETT AUSTRALIA PTY LTD _ MEDUUD661016",
+    "attachments": [
+      "attachments/email_517_SI.txt",
+      "attachments/email_517_BL.txt"
+    ],
+    "evidence": {
+      "si_fields": {
+        "shipper": "APRIL FAR EAST (M) SDN BHD",
+        "consignee": "BALL & DOGGETT AUSTRALIA PTY LTD",
+        "notify_party": "BALL & DOGGETT AUSTRALIA PTY LTD",
+        "port_of_loading": null,
+        "port_of_discharge": null,
+        "container_count": "15 x 20'GP",
+        "gross_weight_kg": "340,770 KG"
+      },
+      "bl_fields": {
+        "shipper": "APRIL FAR EAST (M) SDN BHD\n  TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, NO. 8 JALAN KERINCHI; 59200 KUALA LUMPUR, MALAYSIA",
+        "consignee": "BALL & DOGGETT AUSTRALIA PTY LTD\n  43-45 METROPOLITAN ROAD; ENFIELD NSW 2136, AUSTRALIA",
+        "notify_party": "BALL & DOGGETT AUSTRALIA PTY LTD",
+        "port_of_loading": "SINGAPORE (SGSIN)",
+        "port_of_discharge": "CALLAO, PERU (PECLL)",
+        "container_count": "15 x 20'GP",
+        "gross_weight_kg": "340,770 KG"
+      }
+    },
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_518": {
+    "email_id": "email_518",
+    "reason": "missing_value",
+    "detail": "Required field(s) missing in SI: port_of_discharge, gross_weight_kg",
+    "subject": "RE_ Draft BL NAP 914 V.BS007 NANTONG - amend BL 045",
+    "attachments": [
+      "attachments/email_518_SI.txt",
+      "attachments/email_518_BL.txt"
+    ],
+    "evidence": {
+      "si_fields": {
+        "shipper": "APRIL FINE PAPER TRADING",
+        "consignee": "MOORIM SP CO., LTD",
+        "notify_party": "MOORIM SP CO., LTD",
+        "port_of_loading": "NANTONG, CHINA",
+        "port_of_discharge": null,
+        "container_count": "6 x 20'GP",
+        "gross_weight_kg": null
+      },
+      "bl_fields": {
+        "shipper": "APRIL FINE PAPER TRADING\n  ON BEHALF OF VITAL SOLUTIONS PTE LTD; 77 ROBINSON ROAD, #21-01; SINGAPORE 068896",
+        "consignee": "MOORIM SP CO., LTD\n  656, GANGNAM-DAERO, GANGNAM-GU; SEOUL, SOUTH KOREA; T. 82-2-3485-1500",
+        "notify_party": "MOORIM SP CO., LTD",
+        "port_of_loading": "NANTONG, CHINA (CNNTG)",
+        "port_of_discharge": "APAPA, NIGERIA (NGAPP)",
+        "container_count": "6 x 20'GP",
+        "gross_weight_kg": "134,586 KG"
+      }
+    },
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_519": {
+    "email_id": "email_519",
+    "reason": "missing_value",
+    "detail": "Required field(s) missing in SI: shipper, container_count",
+    "subject": "AFPTME - BUSAN_SOUTH KOREA - OOCL(OOLU8177602991) - 5APH-33373 - 5250071255 - UAB NOVAKOPA - LC",
+    "attachments": [
+      "attachments/email_519_SI.txt",
+      "attachments/email_519_BL.txt"
+    ],
+    "evidence": {
+      "si_fields": {
+        "shipper": null,
+        "consignee": "UAB NOVAKOPA",
+        "notify_party": "UAB NOVAKOPA",
+        "port_of_loading": "BUATAN, INDONESIA",
+        "port_of_discharge": "BUSAN, SOUTH KOREA",
+        "container_count": null,
+        "gross_weight_kg": "70,572 KG"
+      },
+      "bl_fields": {
+        "shipper": "ASIA PACIFIC PAPERBOARD TRADING PTE LTD\n  80 RAFFLES PLACE, #50-01 UOB PLAZA 1; SINGAPORE 048624",
+        "consignee": "UAB NOVAKOPA\n  SAVANORIU PR. 187; LT-02300 VILNIUS, LITHUANIA",
+        "notify_party": "UAB NOVAKOPA",
+        "port_of_loading": "BUATAN, INDONESIA (IDBUA)",
+        "port_of_discharge": "BUSAN, SOUTH KOREA (KRPUS)",
+        "container_count": "3 x 20'FCL",
+        "gross_weight_kg": "70,572 KG"
+      }
+    },
+    "status": "PENDING",
+    "resolution": null
+  },
+  "email_520": {
+    "email_id": "email_520",
+    "reason": "missing_value",
+    "detail": "Required field(s) missing in SI: consignee",
+    "subject": "RE_ AIE - PYEONGTAEK_SOUTH KOREA - MSC(MEDUUD032119) - 5RSG-63852 - 5250077789 - CLIFFORD PAPER INC - CFR",
+    "attachments": [
+      "attachments/email_520_SI.txt",
+      "attachments/email_520_BL.txt"
+    ],
+    "evidence": {
+      "si_fields": {
+        "shipper": "APRIL FINE PAPER TRADING",
+        "consignee": null,
+        "notify_party": "CLIFFORD PAPER INC",
+        "port_of_loading": "SINGAPORE",
+        "port_of_discharge": "PYEONGTAEK, SOUTH KOREA",
+        "container_count": "6 x 40'HC",
+        "gross_weight_kg": "122,640 KG"
+      },
+      "bl_fields": {
+        "shipper": "APRIL FINE PAPER TRADING\n  ON BEHALF OF VITAL SOLUTIONS PTE LTD; 77 ROBINSON ROAD, #21-01; SINGAPORE 068896",
+        "consignee": "CLIFFORD PAPER INC\n  70 EAST STREET; RIDGEFIELD, NJ 07657, USA",
+        "notify_party": "CLIFFORD PAPER INC",
+        "port_of_loading": "SINGAPORE (SGSIN)",
+        "port_of_discharge": "PYEONGTAEK, SOUTH KOREA (KRPTK)",
+        "container_count": "6 x 40'HC",
+        "gross_weight_kg": "122,640 KG"
+      }
+    },
+    "status": "PENDING",
+    "resolution": null
+  }
+}

@@ -1,0 +1,32 @@
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Secrets
+.env
+.env.local
+.env*.local
+
+# Dependencies / build
+node_modules/
+.next/
+out/
+
+# Runtime data
+data/store.json
+data/store.json.tmp
+data/_*.csv
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
