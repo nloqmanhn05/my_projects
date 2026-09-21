@@ -16,6 +16,7 @@ import re
 from os.path import basename
 
 import config
+import gemini
 from docio import read_doc
 from extract import detect_kind, extract_fields
 import extract as X
@@ -103,11 +104,31 @@ def build_result(email, inbox):
         record["notes"].append("Attachment yielded no extractable text (scanned?).")
         return record
 
-    si_fields, si_labels = extract_fields(si_text)
-    bl_fields, bl_labels = extract_fields(bl_text)
-    record["notes"].extend([f"SI labels seen: {_t(si_labels)}", f"BL labels seen: {_t(bl_labels)}"])
+    gemini_used = False
+    if gemini.available():
+        try:
+            res = gemini.compare_docs_gemini(si_text, bl_text)
+            if res and "fields" in res:
+                for f in config.FIELDS:
+                    if f in res["fields"]:
+                        f_info = res["fields"][f]
+                        record["fields"][f] = {
+                            "si": f_info.get("si"),
+                            "bl": f_info.get("bl"),
+                            "match": f_info.get("match"),
+                        }
+                        if f_info.get("missing"):
+                            record["fields"][f]["missing"] = True
+                record["notes"].append("Evaluated using Gemini 2.5 LLM comparison.")
+                gemini_used = True
+        except Exception as e:
+            record["notes"].append(f"Gemini LLM comparison fallback to rules: {e}")
 
-    _build_field_rows(record, si_fields, bl_fields)
+    if not gemini_used:
+        si_fields, si_labels = extract_fields(si_text)
+        bl_fields, bl_labels = extract_fields(bl_text)
+        record["notes"].extend([f"SI labels seen: {_t(si_labels)}", f"BL labels seen: {_t(bl_labels)}"])
+        _build_field_rows(record, si_fields, bl_fields)
 
     mismatched = [f for f in config.FIELDS if record["fields"][f]["match"] is False]
     missing = [f for f in config.FIELDS if record["fields"][f].get("missing")]
