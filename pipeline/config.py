@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """config.py — paths, constants, and label maps for the Reka pipeline."""
+import os
 import re
 from pathlib import Path
 
@@ -10,7 +11,11 @@ ROOT = Path(__file__).resolve().parents[1]
 BUNDLE = ROOT / "sdoc-hackathon-bundle"
 DATA_DIR = ROOT / "data"
 
-INBOX_SOURCE = BUNDLE                       # switch to an http URL later if needed
+# Inbox source, env-driven. Accepted forms:
+#   <folder path>            -> static bundle / exported folder (read-only)
+#   http(s)://host:port      -> score-server or custom inbox API
+#   imap(s)://[user[:pass]@]HOST[:port]/MAILBOX   (or IMAP_HOST/USER/PASS env)
+INBOX_SOURCE = os.environ.get("INBOX_SOURCE", str(BUNDLE))
 OUT_SUBMISSION = DATA_DIR / "submission.json"
 OUT_RESULTS = DATA_DIR / "results.json"
 OUT_REVIEWS = DATA_DIR / "reviews.json"     # NEEDS_REVIEW queue (human-in-the-loop)
@@ -238,3 +243,26 @@ CONTENT_STARTERS = (
 
 def category_of(value: str) -> bool:
     return value in CATEGORIES
+
+
+# ---------------------------------------------------------------------------
+# Attachment role detection ("is this file the SI or the BL?")
+# ---------------------------------------------------------------------------
+# Works for the bundle's `*_SI.*` / `*_BL.*` names AND real mailbox names such
+# as "SI_5RSG-00133.xlsx", "Draft BL.pdf", "bill of lading v2.docx" ...
+_ATTACH_SI_RE = re.compile(
+    r"(?i)(?:(^|[^a-z0-9])(?:s[/]?i)([^a-z0-9]|$))|shipping\s*instruction"
+)
+_ATTACH_BL_RE = re.compile(
+    r"(?i)(?:(^|[^a-z0-9])(?:b[/]?l)([^a-z0-9]|$))|bill\s*of\s*lading"
+)
+
+
+def attachment_role(path):
+    """'si' | 'bl' | None from an attachment file name (case-insensitive)."""
+    b = Path(path).name if path else ""
+    if _ATTACH_SI_RE.search(b):
+        return "si"
+    if _ATTACH_BL_RE.search(b):
+        return "bl"
+    return None

@@ -1,0 +1,14 @@
+# Optional OCR stack for scanned PDF attachments. NOT required for the core
+# pipeline — without these, scanned docs stay in NEEDS_REVIEW (unreadable),
+# which is the safe default.
+#
+# Install:
+#   pip install -r requirements-ocr.txt
+#   # plus the Tesseract binary itself:
+#   #   Windows: https://github.com/UB-Mannheim/tesseract/wiki
+#   #   macOS:   brew install tesseract
+#   #   Debian:  sudo apt install tesseract-ocr
+#
+# Toggle at runtime with PDF_OCR_ENABLED=0 to disable even when installed.
+pytesseract
+Pillow

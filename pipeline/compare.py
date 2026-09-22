@@ -12,24 +12,16 @@ Priority order for review reasons (most informative wins):
 
 Never guess: any ambiguity lands in NEEDS_REVIEW with an honest reason.
 """
-import re
-from os.path import basename
-
-import config
-import gemini
 from docio import read_doc
 from extract import detect_kind, extract_fields
 import extract as X
+import config
+import gemini
 
 
 def attach_role(path):
     """'si' | 'bl' | None from the attachment file name."""
-    b = basename(path or "").lower()
-    if re.search(r"_si\.", b):
-        return "si"
-    if re.search(r"_bl\.", b):
-        return "bl"
-    return None
+    return config.attachment_role(path)
 
 
 def build_result(email, inbox):

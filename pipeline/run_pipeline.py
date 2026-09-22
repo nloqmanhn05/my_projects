@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """run_pipeline.py — end-to-end Reka pipeline.
 
-    python pipeline/run_pipeline.py
+    python pipeline/run_pipeline.py                     # static bundle
+    python pipeline/run_pipeline.py --poll 60           # live inbox, every 60s
+    INBOX_SOURCE=imaps://USER:PASS@imap.gmail.com/INBOX \\
+        python pipeline/run_pipeline.py --poll 60 --reset
 
 Produces:
     data/submission.json   — the 520-key submission (sample_submission shape)
@@ -9,11 +12,16 @@ Produces:
     data/reviews.json      — the NEEDS_REVIEW queue (human-in-the-loop)
 
 Optional env:
+    INBOX_SOURCE           — folder | http(s) url | imap(s):// mailbox
+    IMAP_HOST / IMAP_USER / IMAP_PASS  (+ IMAP_MAILBOX/PORT/SSL)
     GEMINI_API_KEY         — enables the optional LLM refinement pass
-    GEMINI_MODEL           — model id (default gemini-2.0-flash)
+    GEMINI_MODEL           — model id (default gemini-3.5-flash-lite)
 """
+import argparse
 import json
+import os
 import sys
+import time
 from collections import Counter
 from pathlib import Path
 
@@ -23,13 +31,57 @@ import classify
 import compare
 import config
 import gemini
-from loader import Inbox
+from mailbox import make_inbox
+
+
+def _arg_parser():
+    p = argparse.ArgumentParser(description="Reka shipping document verification")
+    p.add_argument("--poll", type=int, default=0, metavar="SECS",
+                   help="run continuously, re-checking the inbox every SECS seconds")
+    p.add_argument("--new-only", action="store_true",
+                   help="with --poll, only process messages newer than the last run")
+    p.add_argument("--reset", action="store_true",
+                   help="clear the mailbox 'last seen' watermark before running")
+    p.add_argument("--source", default=os.environ.get("INBOX_SOURCE", ""),
+                   help="override INBOX_SOURCE (folder, http(s)://, or imap(s):// URL)")
+    return p
 
 
 def main():
-    inbox = Inbox(str(config.INBOX_SOURCE))
+    args = _arg_parser().parse_args()
+    inbox = make_inbox(args.source or config.INBOX_SOURCE)
+    if args.reset and hasattr(inbox, "clear"):
+        inbox.clear()
+
+    if not args.poll:
+        return run_once(inbox)
+
+    print(f"Watching {getattr(inbox, 'host', inbox.source)} every {args.poll}s "
+          f"-- Ctrl+C to stop (--new-only={args.new_only}).")
+    if args.new_only and hasattr(inbox, "has_new"):
+        while True:
+            try:
+                if inbox.has_new():
+                    run_once(inbox)
+                else:
+                    print("No new mail.")
+            except Exception as exc:
+                print(f"poll error: {exc}")
+            time.sleep(args.poll)
+    else:
+        try:
+            while True:
+                run_once(inbox)
+                time.sleep(args.poll)
+        except KeyboardInterrupt:
+            print("\nStopped.")
+    return 0
+
+
+def run_once(inbox):
     emails = inbox.emails()
-    print(f"Loaded {len(emails)} emails from {config.INBOX_SOURCE}")
+    print(f"Loaded {len(emails)} emails from "
+          f"{getattr(inbox, 'host', inbox.source)}")
 
     # ---- 1. classify ------------------------------------------------------
     uncertain = []

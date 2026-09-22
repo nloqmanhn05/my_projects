@@ -1,6 +1,6 @@
 # Reka — Shipping Document Verification System
 
-**Averis x Monash Hackathon.** Automated shipping document verification system designed for maritime operations. It reads an operations desk inbox (520 emails), routes incoming messages, extracts canonical shipment fields, compares **Shipping Instructions (SI)** against **draft Bills of Lading (BL)** across 7 fields, deterministically detects discrepancies, and surfaces defects + review cases in a React / Next.js verification dashboard.
+**Averis x Monash Hackathon.** Automated shipping document verification system designed for maritime operations. It reads an operations desk inbox (520 emails in the hackathon bundle — or a **live IMAP mailbox** in production), routes incoming messages, extracts canonical shipment fields, compares **Shipping Instructions (SI)** against **draft Bills of Lading (BL)** across 7 fields, deterministically detects discrepancies, and surfaces defects + review cases in a React / Next.js verification dashboard.
 
 ---
 
@@ -22,9 +22,44 @@ npm install
 npm run dev                         # http://localhost:3000
 ```
 Pages:
-- `/` — verification inbox (filters, paging, search over 520 emails)
+- `/` — verification inbox (filters, paging, search)
 - `/audit/email_XXX` — field-by-field SI vs BL comparison + decision bar (approve / amend / request amendment / escalate)
 - `/history` — recorded audit decisions
+
+### 3) Connect a Real Email Account (Production Mode)
+> Full walkthrough (app passwords, Task Scheduler, Vercel) → [`SETUP_LIVE.md`](SETUP_LIVE.md)
+
+Point the pipeline at a live shipping-desk inbox instead of the static bundle:
+
+```bash
+# Option A — full URL (app password recommended over the account password)
+export INBOX_SOURCE="imaps://docs@company.com:APP_PASSWORD@imap.gmail.com/INBOX"
+
+# Option B — separate env vars (keeps the password out of the URL)
+export IMAP_HOST="imap.gmail.com"
+export IMAP_USER="docs@company.com"
+export IMAP_PASS="an-app-password"          # Gmail/Outlook App Password
+export INBOX_SOURCE="imaps://unused@imap.gmail.com/INBOX"
+
+# Run once over the whole mailbox:
+python pipeline/run_pipeline.py
+
+# Or poll continuously, processing only messages newer than the last run:
+python pipeline/run_pipeline.py --poll 60 --new-only
+```
+
+Notes on live mode:
+- `pipeline/mailbox.py` implements the same inbox API the bundle uses
+  (`emails()`, `get()`, `read_bytes()`, `read_text()`), so classification,
+  extraction, comparison, and the dashboard all work unchanged.
+- Mail is selected READ-ONLY — fetched messages keep their `\Seen` flag.
+- Attachments are downloaded into a local cache (`data/live_inbox/`) and parsed
+  exactly like the bundle's (`.txt`, `.xlsx`, `.docx`, `.pdf`).
+- SI/BL roles are detected from real-world file names too
+  (`SI_5RSG-00133.xlsx`, `Draft BL ….pdf`, `bill of lading v2.docx`), not just
+  the bundle's `*_SI.*` / `*_BL.*` convention.
+- The `--new-only` watermark lives in `data/live_inbox/seen_uids.json`;
+  clear it with `--reset` to reprocess the whole mailbox.
 
 ---
 
@@ -54,6 +89,7 @@ Pages:
 │   ├── classify.py              # Email classification
 │   ├── compare.py               # SI vs BL field-by-field comparison
 │   ├── gemini.py                # LLM comparison & category refinement
+│   ├── mailbox.py               # Live IMAP inbox reader (production mode)
 │   ├── run_pipeline.py          # End-to-end pipeline runner
 │   ├── score.py                 # Evaluation against ground truth
 │   └── validate.py              # Submission schema validator

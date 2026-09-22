@@ -23,15 +23,16 @@ npm run dev                          # http://localhost:3000
 
 ## 2. Stage-1: Classification (30% of score) — 2 min
 
-1. Open **Inbox** (`/`). Show the category filter chips: **BL_COMPARISON 129,
-   SI_REQUEST 132, INVOICE_QUERY 104, GENERAL 115, SPAM 40**.
+1. Open **Inbox** (`/`). Show the category filter chips: **BL_COMPARISON 220,
+   SI_REQUEST 132, INVOICE_QUERY 104, GENERAL 24, SPAM 40**.
 2. Stress: **the subject line lies.** Pick one BL_COMPARISON email whose subject
    looks like a routing notice — the classifier is **body-driven**. Filter to
    SPAM and open one: obvious lottery/transfer text binned correctly.
-3. Show a judgment call: `email_264`-class emails that only say *"please send the
-   draft BL for checking"* → deliberately routed to **GENERAL** (config
-   `BL_DRAFT_REQUEST_CATEGORY`), because asking for a document is not an intent
-   to compare one.
+3. Show the "no attachments" edge: an email that only says *"please send the
+   draft BL for checking"* carries no SI+BL pair, so it cannot be compared —
+   the rules route it to `GENERAL` (config `BL_DRAFT_REQUEST_CATEGORY`), and
+   with Gemini refinement on, framing it as a BL check surfaces it honestly as
+   **NEEDS_REVIEW / missing_attachment** instead (e.g. `email_003`).
 
 ## 3. Stage-3: Defect capture (20% of score) — 2 min
 
@@ -42,9 +43,9 @@ npm run dev                          # http://localhost:3000
 2. Show normalization progress: SI and BL label the same field differently
    (`GROSS WEIGHT (KGS)` vs `GROSS WT (KG)`); extraction strips decoration like
    `(Principal or Seller)` and `(收货人)` before comparing.
-3. Overview line: 129 comparisons → **63 OK, 51 MISMATCH, 15 NEEDS_REVIEW**;
-   defect-field spread: consignee 11, container_count 19, gross_weight 12,
-   notify_party 8, POD 14, POL 7, shipper 11.
+3. Overview line: 220 comparisons → **53 OK, 43 MISMATCH, 124 NEEDS_REVIEW**;
+   defect-field spread: consignee 11, container_count 13, gross_weight 6,
+   notify_party 7, POD 13, POL 7, shipper 11.
 
 ## 4. The honest review queue (reliability axis) — 2 min
 
@@ -78,9 +79,9 @@ python pipeline/score.py data/ground_truth.json
 
 Show `data/score_report.json` when a ground truth exists. Otherwise anchor the
 claim with **`python pipeline/verify.py`** → `data/verified.md`:
-- 129 BL-comparison emails individually audited; SI and BL raw values side by side.
+- 220 BL-comparison emails individually audited; SI and BL raw values side by side.
 - **0 candidate false positives** — every MISMATCH field has genuinely different
-  text on the two source documents (auto-heuristic), and all 15 review cases have
+  text on the two source documents (auto-heuristic), and all 124 review cases have
   an explicit, verifiable reason.
 
 ## Likely judging questions + one-liners

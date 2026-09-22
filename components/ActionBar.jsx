@@ -22,6 +22,7 @@ export default function ActionBar({ emailId, status, disabledFields, amendmentDr
   const [pending, startTransition] = useTransition();
   const [showAmendment, setShowAmendment] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [composed, setComposed] = useState(false);
 
   function submit() {
     startTransition(async () => {
@@ -37,6 +38,27 @@ export default function ActionBar({ emailId, status, disabledFields, amendmentDr
         setTimeout(() => setCopied(false), 2000);
       });
     }
+  }
+
+  function composeAmendment(event) {
+    if (!amendmentDraft) return;
+    const firstLine = amendmentDraft.split("\n").find((l) => l.trim());
+    const subject =
+      (firstLine || "Amendment Request").replace(/^Subject:\s*/i, "") ||
+      "Amendment Request";
+    const body = amendmentDraft.replace(/\r?\n/g, "\r\n");
+    const url = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    startTransition(async () => {
+      const res = await recordAudit(emailId, "send_amendment", {
+        field: null,
+        value: subject,
+        note: "Amendment email drafted for carrier",
+      });
+      setResult(res);
+      setComposed(true);
+    });
+    window.open(url, "_blank");
+    event?.preventDefault?.();
   }
 
   return (
@@ -66,9 +88,19 @@ export default function ActionBar({ emailId, status, disabledFields, amendmentDr
           {showAmendment && (
             <>
               <div className="amendment-box">{amendmentDraft}</div>
-              <button className="btn btn-primary" onClick={copyAmendment}>
-                {copied ? "Copied" : "Copy Amendment Email"}
-              </button>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <button className="btn btn-primary" onClick={copyAmendment}>
+                  {copied ? "Copied" : "Copy Amendment Email"}
+                </button>
+                <a
+                  className="btn btn-outline"
+                  href="#"
+                  onClick={composeAmendment}
+                  style={{ textDecoration: "none" }}
+                >
+                  {composed ? "Email Opened" : "Compose Amendment Email"}
+                </a>
+              </div>
             </>
           )}
         </div>

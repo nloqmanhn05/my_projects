@@ -6,9 +6,9 @@ Generated from `data/results.json` by `pipeline/verify.py`. Read alongside the r
 
 | Outcome | Count |
 | --- | --- |
-| OK | 454 |
-| MISMATCH | 51 |
-| NEEDS_REVIEW | 15 |
+| OK | 353 |
+| MISMATCH | 43 |
+| NEEDS_REVIEW | 124 |
 | _Total_ | 520 |
 
 ## Candidate false positives (MISMATCH field whose SI/BL raw text is identical)
@@ -21,14 +21,28 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_001_SI.txt, email_001_BL.txt
 - All 7 fields match SI vs BL.
+### email_003 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_004 — MISMATCH
 
 - Docs: email_004_SI.txt, email_004_BL.txt
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FAR EAST (M) SDN BHD / TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, NO. | APRIL FAR EAST (M) SDN BHD / TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, NO. |
-| ❌ consignee | EAST BRIGHT FZ-LLC / RAKEZ AMENITY CENTER; AL HAMRA INDUSTRIAL ZONE, RAK, UAE | UAB NOVAKOPA / RAKEZ AMENITY CENTER; AL HAMRA INDUSTRIAL ZONE, RAK, UAE |
+|    shipper | APRIL FAR EAST (M) SDN BHD /   TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, N | APRIL FAR EAST (M) SDN BHD /   TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, N |
+| ❌ consignee | EAST BRIGHT FZ-LLC /   RAKEZ AMENITY CENTER; AL HAMRA INDUSTRIAL ZONE, RAK, UAE | UAB NOVAKOPA /   RAKEZ AMENITY CENTER; AL HAMRA INDUSTRIAL ZONE, RAK, UAE |
 | ❌ notify_party | EAST BRIGHT FZ-LLC | UAB NOVAKOPA |
 |    port_of_loading | NANTONG, CHINA (CNNTG) | NANTONG, CHINA (CNNTG) |
 |    port_of_discharge | KARACHI, PAKISTAN (PKKHI) | KARACHI, PAKISTAN (PKKHI) |
@@ -39,6 +53,20 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_005_SI.xlsx, email_005_BL.xlsx
 - All 7 fields match SI vs BL.
+### email_006 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_009 — OK
 
 - Docs: email_009_SI.txt, email_009_BL.txt
@@ -49,13 +77,41 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | ASIA PACIFIC PAPERBOARD TRADING PTE LTD / 80 RAFFLES PLACE, #50-01 UOB PLAZA 1;  | ASIA PACIFIC PAPERBOARD TRADING PTE LTD / 80 RAFFLES PLACE, #50-01 UOB PLAZA 1;  |
-|    consignee | ROXCEL TRADING GMBH / OPERNRING 3-5; 1010 VIENNA, AUSTRIA | ROXCEL TRADING GMBH / OPERNRING 3-5; 1010 VIENNA, AUSTRIA |
+|    shipper | ASIA PACIFIC PAPERBOARD TRADING PTE LTD /   80 RAFFLES PLACE, #50-01 UOB PLAZA 1 | ASIA PACIFIC PAPERBOARD TRADING PTE LTD /   80 RAFFLES PLACE, #50-01 UOB PLAZA 1 |
+|    consignee | ROXCEL TRADING GMBH /   OPERNRING 3-5; 1010 VIENNA, AUSTRIA | ROXCEL TRADING GMBH /   OPERNRING 3-5; 1010 VIENNA, AUSTRIA |
 |    notify_party | ROXCEL TRADING GMBH | ROXCEL TRADING GMBH |
 |    port_of_loading | SINGAPORE (SGSIN) | SINGAPORE (SGSIN) |
 | ❌ port_of_discharge | MOMBASA, KENYA (KEMBA) | TUTICORIN, INDIA (KEMBA) |
 |    container_count | 3 | 3 |
 |    gross_weight_kg | 67311.0 | 67311.0 |
+
+### email_016 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_018 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_025 — MISMATCH
 
@@ -63,11 +119,11 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FAR EAST (M) SDN BHD / TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, NO. | APRIL FAR EAST (M) SDN BHD / TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, NO. |
-|    consignee | CERIEX / ZONE INDUSTRIELLE; CONAKRY, GUINEA | CERIEX / ZONE INDUSTRIELLE; CONAKRY, GUINEA |
+|    shipper | APRIL FAR EAST (M) SDN BHD /   TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, N | APRIL FAR EAST (M) SDN BHD /   TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, N |
+|    consignee | CERIEX /   ZONE INDUSTRIELLE; CONAKRY, GUINEA | CERIEX /   ZONE INDUSTRIELLE; CONAKRY, GUINEA |
 |    notify_party | ROXCEL TRADING GMBH | ROXCEL TRADING GMBH |
-|    port_of_loading | PORT KLANG (WESTPORT), MALAYSIA (MYPKG) | PORT KLANG (WESTPORT), MALAYSIA (MYPKG) |
-| ❌ port_of_discharge | FREMANTLE, AUSTRALIA (AUFRE) | BUSAN, SOUTH KOREA (AUFRE) |
+|    port_of_loading | PORT KLANG, MALAYSIA | PORT KLANG, MALAYSIA |
+| ❌ port_of_discharge | FREMANTLE, AUSTRALIA | BUSAN, SOUTH KOREA |
 | ❌ container_count | 6 | 5 |
 |    gross_weight_kg | 135126.0 | 135126.0 |
 
@@ -77,8 +133,8 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE |
-|    consignee | VITAL SOLUTIONS PTE. LTD. / 77 ROBINSON ROAD; #21-01 ROBINSON 77; SINGAPORE 0688 | VITAL SOLUTIONS PTE. LTD. / 77 ROBINSON ROAD; #21-01 ROBINSON 77; SINGAPORE 0688 |
+|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE #813, 4 EA, DUBAI AIRPORT FREE ZONE;  | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE #813, 4 EA, DUBAI AIRPORT FREE ZONE;  |
+|    consignee | VITAL SOLUTIONS PTE. LTD. 77 ROBINSON ROAD; #21-01 ROBINSON 77; SINGAPORE 068896 | VITAL SOLUTIONS PTE. LTD. 77 ROBINSON ROAD; #21-01 ROBINSON 77; SINGAPORE 068896 |
 |    notify_party | VITAL SOLUTIONS PTE. LTD. | VITAL SOLUTIONS PTE. LTD. |
 |    port_of_loading | NHAVA SHEVA, INDIA (INNSA) | NHAVA SHEVA, INDIA (INNSA) |
 |    port_of_discharge | MOMBASA, KENYA (KEMBA) | MOMBASA, KENYA (KEMBA) |
@@ -93,18 +149,56 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_034_SI.txt, email_034_BL.txt
 - All 7 fields match SI vs BL.
-### email_040 — OK
+### email_036 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_038 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_040 — MISMATCH
 
 - Docs: email_040_SI.txt, email_040_BL.txt
-- All 7 fields match SI vs BL.
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE, #813, 4 EA, DUBAI AIRPORT FREE ZONE; | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE, #813, 4 EA, DUBAI AIRPORT FREE ZONE; |
+| ❌ consignee | TOPKOPY MIDDLE EAST FZE, P.O. BOX 17436; JEBEL ALI FREE ZONE, DUBAI, UAE | TO THE ORDER OF: TOPKOPY MIDDLE EAST FZE, P.O. BOX 17436; JEBEL ALI FREE ZONE, D |
+|    notify_party | SAFQA LIMITED | SAFQA LIMITED |
+|    port_of_loading | NHAVA SHEVA, INDIA | NHAVA SHEVA, INDIA |
+|    port_of_discharge | CONAKRY, GUINEA | CONAKRY, GUINEA |
+|    container_count | 10 | 10 |
+|    gross_weight_kg | 222690.0 | 222690.0 |
+
 ### email_043 — MISMATCH
 
 - Docs: email_043_SI.txt, email_043_BL.txt
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | ASIA PACIFIC PAPERBOARD TRADING PTE LTD / 80 RAFFLES PLACE, #50-01 UOB PLAZA 1;  | ASIA PACIFIC PAPERBOARD TRADING PTE LTD / 80 RAFFLES PLACE, #50-01 UOB PLAZA 1;  |
-|    consignee | PACIFIC OFFICE (M) SDN BHD / LOT 6, JALAN P/7; SECTION 13, 43650 BANDAR BARU BAN | PACIFIC OFFICE (M) SDN BHD / LOT 6, JALAN P/7; SECTION 13, 43650 BANDAR BARU BAN |
+|    shipper | ASIA PACIFIC PAPERBOARD TRADING PTE LTD /   80 RAFFLES PLACE, #50-01 UOB PLAZA 1 | ASIA PACIFIC PAPERBOARD TRADING PTE LTD /   80 RAFFLES PLACE, #50-01 UOB PLAZA 1 |
+|    consignee | PACIFIC OFFICE (M) SDN BHD /   LOT 6, JALAN P/7; SECTION 13, 43650 BANDAR BARU B | PACIFIC OFFICE (M) SDN BHD /   LOT 6, JALAN P/7; SECTION 13, 43650 BANDAR BARU B |
 |    notify_party | PACIFIC OFFICE (M) SDN BHD | PACIFIC OFFICE (M) SDN BHD |
 |    port_of_loading | NHAVA SHEVA, INDIA (INNSA) | NHAVA SHEVA, INDIA (INNSA) |
 |    port_of_discharge | KLAIPEDA, LITHUANIA (LTKLJ) | KLAIPEDA, LITHUANIA (LTKLJ) |
@@ -121,26 +215,88 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE |
-|    consignee | SAFQA LIMITED / P.O. BOX 99423-80100; TONONOKA ROAD; MOMBASA, KENYA; PIN NO.: P0 | SAFQA LIMITED / P.O. BOX 99423-80100; TONONOKA ROAD; MOMBASA, KENYA; PIN NO.: P0 |
+|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE #813, 4 EA, DUBAI AIRPORT FREE ZONE;  | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE #813, 4 EA, DUBAI AIRPORT FREE ZONE;  |
+|    consignee | SAFQA LIMITED P.O. BOX 99423-80100; TONONOKA ROAD; MOMBASA, KENYA; PIN NO.: P051 | SAFQA LIMITED P.O. BOX 99423-80100; TONONOKA ROAD; MOMBASA, KENYA; PIN NO.: P051 |
 | ❌ notify_party | TOPKOPY MIDDLE EAST FZE | MOORIM SP CO., LTD |
 |    port_of_loading | PORT KLANG (WESTPORT), MALAYSIA (MYPKG) | PORT KLANG (WESTPORT), MALAYSIA (MYPKG) |
 |    port_of_discharge | SAVANNAH, US (USSAV) | SAVANNAH, US (USSAV) |
 |    container_count | 12 | 12 |
 |    gross_weight_kg | 257340.0 | 257340.0 |
 
+### email_047 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_049 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_050 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_051 — OK
 
 - Docs: email_051_SI.txt, email_051_BL.txt
 - All 7 fields match SI vs BL.
-### email_052 — OK
+### email_052 — MISMATCH
 
 - Docs: email_052_SI.txt, email_052_BL.txt
-- All 7 fields match SI vs BL.
-### email_055 — OK
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | APRIL FAR EAST (M) SDN BHD /   TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, N | APRIL FAR EAST (M) SDN BHD /   TOWER 2, AVENUE 5, LEVEL 6; BANGSAR SOUTH CITY, N |
+| ❌ consignee | BALL & DOGGETT AUSTRALIA PTY LTD /   43-45 METROPOLITAN ROAD; ENFIELD NSW 2136,  | TO THE ORDER OF BALL & DOGGETT AUSTRALIA PTY LTD /   43-45 METROPOLITAN ROAD; EN |
+|    notify_party | BALL & DOGGETT AUSTRALIA PTY LTD | BALL & DOGGETT AUSTRALIA PTY LTD |
+|    port_of_loading | SINGAPORE (SGSIN) | SINGAPORE (SGSIN) |
+|    port_of_discharge | PYEONGTAEK, SOUTH KOREA (KRPTK) | PYEONGTAEK, SOUTH KOREA (KRPTK) |
+|    container_count | 6 | 6 |
+|    gross_weight_kg | 135930.0 | 135930.0 |
+
+### email_055 — NEEDS_REVIEW — unreadable
 
 - Docs: email_055_SI.xlsx, email_055_BL.docx
-- All 7 fields match SI vs BL.
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_056 — OK
 
 - Docs: email_056_SI.txt, email_056_BL.txt
@@ -149,10 +305,48 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_058_SI.txt, email_058_BL.txt
 - All 7 fields match SI vs BL.
-### email_059 — OK
+### email_059 — NEEDS_REVIEW — unreadable
 
 - Docs: email_059_SI.pdf, email_059_BL.pdf
-- All 7 fields match SI vs BL.
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_061 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_063 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_064 — OK
 
 - Docs: email_064_SI.txt, email_064_BL.txt
@@ -170,6 +364,20 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 | ❌ port_of_discharge | HOCHIMINH CITY, VIETNAM (VNSGN) | BUSAN, SOUTH KOREA (VNSGN) |
 |    container_count | 1 | 1 |
 |    gross_weight_kg | 21479.0 | 21479.0 |
+
+### email_066 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_068 — OK
 
@@ -189,10 +397,66 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 | ❌ container_count | 6 | 8 |
 |    gross_weight_kg | 132006.0 | 132006.0 |
 
+### email_077 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_080 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_081 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_082 — OK
 
 - Docs: email_082_SI.txt, email_082_BL.txt
 - All 7 fields match SI vs BL.
+### email_088 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_090 — OK
 
 - Docs: email_090_SI.txt, email_090_BL.txt
@@ -211,37 +475,107 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 | ❌ container_count | 3 | 2 |
 |    gross_weight_kg | 67953.0 | 67953.0 |
 
+### email_092 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_095 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_096 — OK
 
 - Docs: email_096_SI.txt, email_096_BL.txt
 - All 7 fields match SI vs BL.
-### email_097 — MISMATCH
+### email_097 — NEEDS_REVIEW — unreadable
 
 - Docs: email_097_SI.xlsx, email_097_BL.docx
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE | #813, 4 EA, DUBAI AIRPORT FREE ZONE | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE |
-|    consignee | ROXCEL TRADING GMBH | OPERNRING 3-5; 1010 VIENNA, AUSTRIA | ROXCEL TRADING GMBH / OPERNRING 3-5 / 1010 VIENNA, AUSTRIA |
-|    notify_party | NAGAPPA EXPORTS | NEW NO : 23, L-BLOCK, 17TH STREET; ANNA NAGAR EAST; CHENNAI, T | NAGAPPA EXPORTS / NEW NO : 23, L-BLOCK, 17TH STREET / ANNA NAGAR EAST / CHENNAI, |
-|    port_of_loading | SINGAPORE | SINGAPORE |
-|    port_of_discharge | BRISBANE, AUSTRALIA | BRISBANE, AUSTRALIA |
-| ❌ container_count | 10 | 11 |
-| ❌ gross_weight_kg | 216950.0 | 215950.0 |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
-### email_107 — MISMATCH
+### email_100 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_105 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_107 — NEEDS_REVIEW — unreadable
 
 - Docs: email_107_SI.xlsx, email_107_BL.docx
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE | #813, 4 EA, DUBAI AIRPORT FREE ZONE | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE |
-| ❌ consignee | KTP CO., LTD | KTP BLDG., 36 SANGWON-GIL; SEOUNGDONG-GU, SEOUL, SOUTH KOREA; TEL | VITAL SOLUTIONS PTE. LTD. / KTP BLDG., 36 SANGWON-GIL / SEOUNGDONG-GU, SEOUL, SO |
-|    notify_party | KTP CO., LTD | KTP BLDG., 36 SANGWON-GIL; SEOUNGDONG-GU, SEOUL, SOUTH KOREA; TEL | KTP CO., LTD / KTP BLDG., 36 SANGWON-GIL / SEOUNGDONG-GU, SEOUL, SOUTH KOREA / T |
-|    port_of_loading | PORT KLANG (WESTPORT), MALAYSIA | PORT KLANG (WESTPORT), MALAYSIA |
-|    port_of_discharge | MOMBASA, KENYA | MOMBASA, KENYA |
-| ❌ container_count | 2 | 3 |
-|    gross_weight_kg | 41124.0 | 41124.0 |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_109 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_111 — MISMATCH
 
@@ -261,6 +595,20 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_113_SI.txt, email_113_BL.txt
 - All 7 fields match SI vs BL.
+### email_114 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_118 — OK
 
 - Docs: email_118_SI.txt, email_118_BL.txt
@@ -339,6 +687,34 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 |    container_count | 6 | 6 |
 | ❌ gross_weight_kg | 142848.0 | 144848.0 |
 
+### email_136 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_141 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_143 — OK
 
 - Docs: email_143_SI.txt, email_143_BL.txt
@@ -375,10 +751,62 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_146_SI.txt, email_146_BL.txt
 - All 7 fields match SI vs BL.
-### email_160 — OK
+### email_152 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_158 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_160 — NEEDS_REVIEW — unreadable
 
 - Docs: email_160_SI.pdf, email_160_BL.pdf
-- All 7 fields match SI vs BL.
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_161 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_167 — OK
 
 - Docs: email_167_SI.txt, email_167_BL.txt
@@ -405,6 +833,20 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_175_SI.txt, email_175_BL.txt
 - All 7 fields match SI vs BL.
+### email_176 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_178 — MISMATCH
 
 - Docs: email_178_SI.txt, email_178_BL.txt
@@ -433,6 +875,76 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 | ❌ container_count | 5 | 6 |
 |    gross_weight_kg | 100240.0 | 100240.0 |
 
+### email_186 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_187 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_189 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_190 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_195 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_197 — OK
 
 - Docs: email_197_SI.txt, email_197_BL.txt
@@ -441,10 +953,90 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_198_SI.txt, email_198_BL.txt
 - All 7 fields match SI vs BL.
-### email_208 — OK
+### email_199 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_207 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_208 — NEEDS_REVIEW — unreadable
 
 - Docs: email_208_SI.pdf, email_208_BL.pdf
-- All 7 fields match SI vs BL.
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_210 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_220 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_223 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_225 — MISMATCH
 
 - Docs: email_225_SI.txt, email_225_BL.txt
@@ -463,14 +1055,56 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_227_SI.txt, email_227_BL.txt
 - All 7 fields match SI vs BL.
+### email_229 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_235 — OK
 
 - Docs: email_235_SI.txt, email_235_BL.txt
 - All 7 fields match SI vs BL.
+### email_237 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_239 — OK
 
 - Docs: email_239_SI.txt, email_239_BL.txt
 - All 7 fields match SI vs BL.
+### email_242 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_243 — MISMATCH
 
 - Docs: email_243_SI.xlsx, email_243_BL.xlsx
@@ -485,10 +1119,38 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 |    container_count | 5 | 5 |
 |    gross_weight_kg | 100445.0 | 100445.0 |
 
+### email_247 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_249 — OK
 
 - Docs: email_249_SI.txt, email_249_BL.txt
 - All 7 fields match SI vs BL.
+### email_250 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_256 — MISMATCH
 
 - Docs: email_256_SI.txt, email_256_BL.txt
@@ -502,6 +1164,62 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 | ❌ port_of_discharge | VALPARAISO, CHILE (CLVAP) | FREMANTLE, AUSTRALIA (CLVAP) |
 |    container_count | 12 | 12 |
 |    gross_weight_kg | 262224.0 | 262224.0 |
+
+### email_259 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_261 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_263 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_265 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_270 — MISMATCH
 
@@ -517,32 +1235,126 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 |    container_count | 6 | 6 |
 |    gross_weight_kg | 139536.0 | 139536.0 |
 
-### email_273 — OK
+### email_271 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_273 — NEEDS_REVIEW — unreadable
 
 - Docs: email_273_SI.pdf, email_273_BL.pdf
-- All 7 fields match SI vs BL.
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_275 — OK
 
 - Docs: email_275_SI.txt, email_275_BL.txt
 - All 7 fields match SI vs BL.
-### email_291 — MISMATCH
+### email_281 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_282 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_288 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_291 — NEEDS_REVIEW — unreadable
 
 - Docs: email_291_SI.xlsx, email_291_BL.docx
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE | #813, 4 EA, DUBAI AIRPORT FREE ZONE | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE |
-| ❌ consignee | INTERNATIONAL FOREST PRODUCTS LLC | 6 HOLLIS STREET; SUITE 100; FRAMINGHAM, MA 0 | TOPKOPY MIDDLE EAST FZE / 6 HOLLIS STREET / SUITE 100 / FRAMINGHAM, MA 01702, US |
-|    notify_party | INTERNATIONAL FOREST PRODUCTS LLC | 6 HOLLIS STREET; SUITE 100; FRAMINGHAM, MA 0 | INTERNATIONAL FOREST PRODUCTS LLC / 6 HOLLIS STREET / SUITE 100 / FRAMINGHAM, MA |
-|    port_of_loading | NANTONG, CHINA | NANTONG, CHINA |
-|    port_of_discharge | SAVANNAH, US | SAVANNAH, US |
-| ❌ container_count | 1 | 3 |
-|    gross_weight_kg | 21745.0 | 21745.0 |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_292 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_296 — OK
 
 - Docs: email_296_SI.txt, email_296_BL.txt
 - All 7 fields match SI vs BL.
+### email_299 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_300 — MISMATCH
 
 - Docs: email_300_SI.xlsx, email_300_BL.xlsx
@@ -557,24 +1369,66 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 |    container_count | 12 | 12 |
 |    gross_weight_kg | 243168.0 | 243168.0 |
 
-### email_302 — MISMATCH
+### email_301 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_302 — NEEDS_REVIEW — unreadable
 
 - Docs: email_302_SI.xlsx, email_302_BL.docx
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE | #813, 4 EA, DUBAI AIRPORT FREE ZONE | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE |
-|    consignee | INTERNATIONAL FOREST PRODUCTS LLC | 6 HOLLIS STREET; SUITE 100; FRAMINGHAM, MA 0 | INTERNATIONAL FOREST PRODUCTS LLC / 6 HOLLIS STREET / SUITE 100 / FRAMINGHAM, MA |
-|    notify_party | KTP CO., LTD | KTP BLDG., 36 SANGWON-GIL; SEOUNGDONG-GU, SEOUL, SOUTH KOREA; TEL | KTP CO., LTD / KTP BLDG., 36 SANGWON-GIL / SEOUNGDONG-GU, SEOUL, SOUTH KOREA / T |
-|    port_of_loading | RUGAO/NANTONG/SHANGHAI, CHINA | RUGAO/NANTONG/SHANGHAI, CHINA |
-|    port_of_discharge | BRISBANE, AUSTRALIA | BRISBANE, AUSTRALIA |
-| ❌ container_count | 2 | 4 |
-|    gross_weight_kg | 40176.0 | 40176.0 |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_305 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_307 — OK
 
 - Docs: email_307_SI.txt, email_307_BL.txt
 - All 7 fields match SI vs BL.
+### email_309 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_312 — MISMATCH
 
 - Docs: email_312_SI.txt, email_312_BL.txt
@@ -589,19 +1443,61 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 |    container_count | 10 | 10 |
 |    gross_weight_kg | 237010.0 | 237010.0 |
 
-### email_313 — MISMATCH
+### email_313 — NEEDS_REVIEW — unreadable
 
 - Docs: email_313_SI.pdf, email_313_BL.pdf
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING / ON BEHALF OF VITAL SOLUTIONS PTE LTD / 77 ROBINSON RO | APRIL FINE PAPER TRADING / ON BEHALF OF VITAL SOLUTIONS PTE LTD / 77 ROBINSON RO |
-|    consignee | KPP-ANTALIS (SINGAPORE) PTE. LTD. / 8 TEMASEK BOULEVARD / #42-01 SUNTEC TOWER 3  | KPP-ANTALIS (SINGAPORE) PTE. LTD. / 8 TEMASEK BOULEVARD / #42-01 SUNTEC TOWER 3  |
-|    notify_party | KPP-ANTALIS (SINGAPORE) PTE. LTD. / 8 TEMASEK BOULEVARD / #42-01 SUNTEC TOWER 3  | KPP-ANTALIS (SINGAPORE) PTE. LTD. / 8 TEMASEK BOULEVARD / #42-01 SUNTEC TOWER 3  |
-|    port_of_loading | RUGAO/NANTONG/SHANGHAI, CHINA | RUGAO/NANTONG/SHANGHAI, CHINA |
-|    port_of_discharge | HOCHIMINH CITY, VIETNAM | HOCHIMINH CITY, VIETNAM |
-| ❌ container_count | 5 | 4 |
-| ❌ gross_weight_kg | 118270.0 | 117770.0 |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_318 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_319 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_321 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_324 — MISMATCH
 
@@ -616,6 +1512,20 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 |    port_of_discharge | NEW YORK, US (USNYC) | NEW YORK, US (USNYC) |
 | ❌ container_count | 3 | 4 |
 |    gross_weight_kg | 60258.0 | 60258.0 |
+
+### email_326 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_334 — MISMATCH
 
@@ -635,6 +1545,34 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_335_SI.txt, email_335_BL.txt
 - All 7 fields match SI vs BL.
+### email_337 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_341 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_342 — MISMATCH
 
 - Docs: email_342_SI.txt, email_342_BL.txt
@@ -649,6 +1587,20 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 | ❌ container_count | 1 | 2 |
 |    gross_weight_kg | 23794.0 | 23794.0 |
 
+### email_343 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_348 — OK
 
 - Docs: email_348_SI.txt, email_348_BL.txt
@@ -657,33 +1609,47 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_349_SI.txt, email_349_BL.txt
 - All 7 fields match SI vs BL.
-### email_351 — MISMATCH
+### email_350 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_351 — NEEDS_REVIEW — unreadable
 
 - Docs: email_351_SI.pdf, email_351_BL.pdf
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE |
-|    consignee | KTP CO., LTD / KTP BLDG., 36 SANGWON-GIL / SEOUNGDONG-GU, SEOUL, SOUTH KOREA / T | KTP CO., LTD / KTP BLDG., 36 SANGWON-GIL / SEOUNGDONG-GU, SEOUL, SOUTH KOREA / T |
-|    notify_party | KTP CO., LTD / KTP BLDG., 36 SANGWON-GIL / SEOUNGDONG-GU, SEOUL, SOUTH KOREA / T | KTP CO., LTD / KTP BLDG., 36 SANGWON-GIL / SEOUNGDONG-GU, SEOUL, SOUTH KOREA / T |
-|    port_of_loading | PORT KLANG (WESTPORT), MALAYSIA | PORT KLANG (WESTPORT), MALAYSIA |
-|    port_of_discharge | ASHDOD, ISRAEL | ASHDOD, ISRAEL |
-| ❌ container_count | 15 | 16 |
-| ❌ gross_weight_kg | 359415.0 | 360415.0 |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
-### email_354 — MISMATCH
+### email_354 — NEEDS_REVIEW — unreadable
 
 - Docs: email_354_SI.xlsx, email_354_BL.docx
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING | ON BEHALF OF VITAL SOLUTIONS PTE LTD; 77 ROBINSON ROA | APRIL FINE PAPER TRADING / ON BEHALF OF VITAL SOLUTIONS PTE LTD / 77 ROBINSON RO |
-|    consignee | HABRAS INTERNATIONAL LIMITED | OFFICE 1204, THE BURLINGTON TOWER; BUSINESS BAY,  | HABRAS INTERNATIONAL LIMITED / OFFICE 1204, THE BURLINGTON TOWER / BUSINESS BAY, |
-| ❌ notify_party | HABRAS INTERNATIONAL LIMITED | OFFICE 1204, THE BURLINGTON TOWER; BUSINESS BAY,  | NAGAPPA EXPORTS / OFFICE 1204, THE BURLINGTON TOWER / BUSINESS BAY, DUBAI, UAE |
-|    port_of_loading | RUGAO/NANTONG/SHANGHAI, CHINA | RUGAO/NANTONG/SHANGHAI, CHINA |
-|    port_of_discharge | VALPARAISO, CHILE | VALPARAISO, CHILE |
-|    container_count | 1 | 1 |
-| ❌ gross_weight_kg | 20603.0 | 22603.0 |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_361 — MISMATCH
 
@@ -729,10 +1695,52 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 |    container_count | 12 | 12 |
 |    gross_weight_kg | 272232.0 | 272232.0 |
 
+### email_381 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_383 — OK
 
 - Docs: email_383_SI.txt, email_383_BL.txt
 - All 7 fields match SI vs BL.
+### email_384 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_385 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_391 — OK
 
 - Docs: email_391_SI.txt, email_391_BL.txt
@@ -741,14 +1749,38 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_398_SI.xlsx, email_398_BL.xlsx
 - All 7 fields match SI vs BL.
+### email_401 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_405 — OK
 
 - Docs: email_405_SI.txt, email_405_BL.txt
 - All 7 fields match SI vs BL.
-### email_407 — OK
+### email_407 — NEEDS_REVIEW — unreadable
 
 - Docs: email_407_SI.pdf, email_407_BL.pdf
-- All 7 fields match SI vs BL.
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_408 — OK
 
 - Docs: email_408_SI.txt, email_408_BL.txt
@@ -771,10 +1803,20 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 |    container_count | 15 | 15 |
 |    gross_weight_kg | 324210.0 | 324210.0 |
 
-### email_411 — OK
+### email_411 — NEEDS_REVIEW — unreadable
 
 - Docs: email_411_SI.pdf, email_411_BL.pdf
-- All 7 fields match SI vs BL.
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_416 — MISMATCH
 
 - Docs: email_416_SI.txt, email_416_BL.txt
@@ -788,6 +1830,62 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 |    port_of_discharge | LONG BEACH, US (USLGB) | LONG BEACH, US (USLGB) |
 |    container_count | 5 | 5 |
 | ❌ gross_weight_kg | 105625.0 | 106625.0 |
+
+### email_419 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_421 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_423 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_424 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_426 — MISMATCH
 
@@ -807,42 +1905,234 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_428_SI.txt, email_428_BL.txt
 - All 7 fields match SI vs BL.
-### email_434 — MISMATCH
+### email_432 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_434 — NEEDS_REVIEW — unreadable
 
 - Docs: email_434_SI.pdf, email_434_BL.pdf
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE |
-|    consignee | TOPKOPY MIDDLE EAST FZE / P.O. BOX 17436 / JEBEL ALI FREE ZONE, DUBAI, UAE | TOPKOPY MIDDLE EAST FZE / P.O. BOX 17436 / JEBEL ALI FREE ZONE, DUBAI, UAE |
-|    notify_party | TOPKOPY MIDDLE EAST FZE / P.O. BOX 17436 / JEBEL ALI FREE ZONE, DUBAI, UAE | TOPKOPY MIDDLE EAST FZE / P.O. BOX 17436 / JEBEL ALI FREE ZONE, DUBAI, UAE |
-|    port_of_loading | NHAVA SHEVA, INDIA | NHAVA SHEVA, INDIA |
-| ❌ port_of_discharge | BUSAN, SOUTH KOREA | CEBU, PHILIPPINES |
-|    container_count | 12 | 12 |
-|    gross_weight_kg | 261480.0 | 261480.0 |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
-### email_435 — MISMATCH
+### email_435 — NEEDS_REVIEW — unreadable
 
 - Docs: email_435_SI.xlsx, email_435_BL.docx
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE | #813, 4 EA, DUBAI AIRPORT FREE ZONE | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE |
-|    consignee | AL GURG STATIONERY LLC | P.O. BOX 5069; DUBAI, UNITED ARAB EMIRATES | AL GURG STATIONERY LLC / P.O. BOX 5069 / DUBAI, UNITED ARAB EMIRATES |
-|    notify_party | AL GURG STATIONERY LLC | P.O. BOX 5069; DUBAI, UNITED ARAB EMIRATES | AL GURG STATIONERY LLC / P.O. BOX 5069 / DUBAI, UNITED ARAB EMIRATES |
-|    port_of_loading | SINGAPORE | SINGAPORE |
-|    port_of_discharge | AQABA, JORDAN | AQABA, JORDAN |
-|    container_count | 10 | 10 |
-| ❌ gross_weight_kg | 214270.0 | 214770.0 |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_436 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_440 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_442 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_444 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_446 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_447 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_448 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_451 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_453 — OK
 
 - Docs: email_453_SI.txt, email_453_BL.txt
 - All 7 fields match SI vs BL.
-### email_462 — OK
+### email_454 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_456 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_459 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_462 — NEEDS_REVIEW — unreadable
 
 - Docs: email_462_SI.xlsx, email_462_BL.docx
-- All 7 fields match SI vs BL.
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
+### email_465 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_468 — MISMATCH
 
 - Docs: email_468_SI.txt, email_468_BL.txt
@@ -861,10 +2151,38 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_474_SI.txt, email_474_BL.txt
 - All 7 fields match SI vs BL.
+### email_476 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_479 — OK
 
 - Docs: email_479_SI.txt, email_479_BL.txt
 - All 7 fields match SI vs BL.
+### email_480 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_481 — MISMATCH
 
 - Docs: email_481_SI.xlsx, email_481_BL.xlsx
@@ -879,18 +2197,74 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 |    container_count | 4 | 4 |
 |    gross_weight_kg | 91436.0 | 91436.0 |
 
+### email_482 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_483 — OK
 
 - Docs: email_483_SI.txt, email_483_BL.txt
 - All 7 fields match SI vs BL.
+### email_486 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_491 — OK
 
 - Docs: email_491_SI.txt, email_491_BL.txt
 - All 7 fields match SI vs BL.
+### email_493 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_494 — OK
 
 - Docs: email_494_SI.txt, email_494_BL.txt
 - All 7 fields match SI vs BL.
+### email_495 — NEEDS_REVIEW — missing_attachment
+
+- Docs: 
+
+| Field | SI | BL |
+| --- | --- | --- |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
+
 ### email_496 — OK
 
 - Docs: email_496_SI.xlsx, email_496_BL.xlsx
@@ -899,19 +2273,19 @@ _None — every flagged MISMATCH field has distinct source text on the two docs.
 
 - Docs: email_498_SI.txt, email_498_BL.txt
 - All 7 fields match SI vs BL.
-### email_499 — MISMATCH
+### email_499 — NEEDS_REVIEW — unreadable
 
 - Docs: email_499_SI.pdf, email_499_BL.pdf
 
 | Field | SI | BL |
 | --- | --- | --- |
-|    shipper | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE | APRIL FINE PAPER TRADING (MIDDLE EAST) FZE / #813, 4 EA, DUBAI AIRPORT FREE ZONE |
-|    consignee | TOPKOPY MIDDLE EAST FZE / P.O. BOX 17436 / JEBEL ALI FREE ZONE, DUBAI, UAE | TOPKOPY MIDDLE EAST FZE / P.O. BOX 17436 / JEBEL ALI FREE ZONE, DUBAI, UAE |
-|    notify_party | TOPKOPY MIDDLE EAST FZE / P.O. BOX 17436 / JEBEL ALI FREE ZONE, DUBAI, UAE | TOPKOPY MIDDLE EAST FZE / P.O. BOX 17436 / JEBEL ALI FREE ZONE, DUBAI, UAE |
-|    port_of_loading | PORT KLANG (WESTPORT), MALAYSIA | PORT KLANG (WESTPORT), MALAYSIA |
-|    port_of_discharge | HOCHIMINH CITY, VIETNAM | HOCHIMINH CITY, VIETNAM |
-|    container_count | 2 | 2 |
-| ❌ gross_weight_kg | 40326.0 | 41326.0 |
+|    shipper | — | — |
+|    consignee | — | — |
+|    notify_party | — | — |
+|    port_of_loading | — | — |
+|    port_of_discharge | — | — |
+|    container_count | — | — |
+|    gross_weight_kg | — | — |
 
 ### email_501 — NEEDS_REVIEW — wrong_doc_type
 

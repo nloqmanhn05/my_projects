@@ -19,6 +19,7 @@ surfacing defects and needing-review cases in a verification dashboard.
 ```
 pipeline/            # Python: classify → extract → compare → submission
   loader.py          # verbatim copy of the bundle loader (Inbox API)
+  mailbox.py         # live IMAP inbox reader — same Inbox API, production mode
   config.py          # paths, categories, field/token maps, classifier rules
   docio.py           # read txt/xlsx/docx/pdf attachments to plain text
   extract.py         # 7-field extraction + normalization + doc-kind detection
@@ -37,7 +38,8 @@ data/                        # generated artifacts (gitignored outputs ok to shi
   reviews.json               # NEEDS_REVIEW queue (human-in-the-loop review cases)
   store.json                 # persisted dashboard audit events
   metadata.json              # run summary counts
-  verified.md                # verify.py human-audit report (129 SI↔BL reviews)
+  verified.md                # verify.py human-audit report (220 SI↔BL reviews)
+  live_inbox/                # IMAP cache + seen_uids.json watermark (live mode)
   explore_report.txt         # explore.py --dump full dump
 app/                   # Next.js routes
   page.jsx             # Inbox (filters, paging, search)
@@ -60,6 +62,8 @@ npm install
 npm run dev                          # http://localhost:3000
 ```
 
+Live-mailbox setup, OCR, and Vercel deploy walkthrough → `SETUP_LIVE.md`.
+
 Optional Gemini refinement (categories only, when rules are uncertain):
 
 ```bash
@@ -67,13 +71,29 @@ export GEMINI_API_KEY=...            # Windows: $env:GEMINI_API_KEY="..."
 python pipeline/run_pipeline.py
 ```
 
+Live inbox (production mode) — reads a real IMAP mailbox, same pipeline:
+
+```bash
+export INBOX_SOURCE="imaps://USER:PASS@imap.gmail.com/INBOX"   # or IMAP_HOST/USER/PASS
+python pipeline/run_pipeline.py            # full mailbox, one pass
+python pipeline/run_pipeline.py --poll 60 --new-only   # continuous polling
+```
+
+`pipeline/mailbox.py` (`LiveInbox`) presents the mailbox behind the same
+`emails()/get()/read_bytes()/read_text()` API as `loader.Inbox`, so the whole
+classify→extract→compare→dashboard chain is source-agnostic. Mailboxes are
+selected READ-ONLY; attachments are cached under `data/live_inbox/` and the
+`--new-only` watermark is `data/live_inbox/seen_uids.json` (`--reset` to clear).
+
 ## Key design decisions (do not "fix" casually)
 
 1. **Classification is body-driven, never subject-driven.** Subjects in the
    bundle are deliberately cross-wired/rotated. `classify.py` strips the
    security-warning banners first and matches phrase templates.
-2. **Attachment override**: any email carrying a `*_SI.*` + `*_BL.*` pair is
-   `BL_COMPARISON` (once spam is excluded), regardless of body wording.
+2. **Attachment override**: any email carrying an SI + BL attachment pair is
+   `BL_COMPARISON` (once spam is excluded), regardless of body wording. Roles
+   come from `config.attachment_role()` — bundle `*_SI.*`/`*_BL.*` names plus
+   real-world names (`SI_5RSG-00133.xlsx`, `Draft BL ….pdf`, `bill of lading…`).
 3. **"Please send the draft BL for checking" → `GENERAL`** (config
    `BL_DRAFT_REQUEST_CATEGORY`). These emails have no attachments and express
    no comparison intent; they sit in the residual bucket.
@@ -99,7 +119,12 @@ candidate false positives (0 currently).
 ## Environments / secrets
 
 - `.env.example` is the contract: `GEMINI_API_KEY`, `GEMINI_MODEL` (default
-  `gemini-2.0-flash`), `INBOX_SOURCE` (future http server source).
+  `gemini-3.5-flash-lite`), `INBOX_SOURCE` (folder, `http(s)://` server, or
+  `imap(s)://` mailbox) + `IMAP_HOST`/`IMAP_USER`/`IMAP_PASS`.
+- The committed `data/submission.json` + `results.json` were produced by the
+  **Gemini-refined** run (220 BL_COMPARISON). Re-running without `GEMINI_API_KEY`
+  applies rules only and yields different counts (129 BL_COMPARISON) — after any
+  edit, re-run with the key (or document the rule-only output) and re-validate.
 - Never commit real API keys. Sample keys go in `.env.local` (gitignored).
 - There is **no scoring server URL** and **no `score_cli.py`** in this bundle —
   submission is verified locally by `validate.py`.

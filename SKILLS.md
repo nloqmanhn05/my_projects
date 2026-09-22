@@ -57,7 +57,8 @@ Normalization for comparison (align by meaning, not formatting):
   ORIGIN`, `PROFORMA INVOICE`, `SHIPPING ADVICE`
 - `BILL OF LADING INSTRUCTION` / `SHIPPING INSTRUCTION` → `si`
 - `BILL OF LADING` → `bl`
-- otherwise inherit the file-name role (`_SI.*` ⇒ si, `_BL.*` ⇒ bl) — a
+- otherwise inherit the file-name role (see `config.attachment_role`:
+  `*_SI.*`, `SI_…`, `*_BL.*`, `Draft BL …`, `bill of lading …` ⇒ si/bl) — a
   readable doc that isn't self-labelled is NOT "unreadable"
 - text shorter than 30 meaningful chars ⇒ `unreadable` (image scans)
 
@@ -69,7 +70,9 @@ Rule order (first match wins):
 1. **SPAM** — lottery, bank, customs-fee, "storage limit", 90%-off
 2. **BL_COMPARISON** — body phrase (`verify the BL matches the SI`,
    `check the draft BL against the SI`, `confirm the BL is in order`, ...) OR
-   attachment override (any `*_SI.*` + `*_BL.*` pair)
+   attachment override (an SI + BL pair — detected by file name via
+   `config.attachment_role()`, which knows bundle `*_SI.*`/`*_BL.*` names and
+   real-world names like `SI_5RSG-00133.xlsx` or `Draft BL ….pdf`)
 3. **SI_REQUEST** — `Please find Shipping instruction for X. POL:... POD:...`,
    `submit SI & AED`, SI + packing list / commercial invoice / COO
 4. **INVOICE_QUERY** — invoices, THC/local charges breakdown, missing GR,
@@ -121,10 +124,31 @@ after every pipeline edit.
   page; badges in `components/badge.jsx`.
 - Delete `data/store.json` to reseed history after a pipeline re-run.
 
-## 8. Gemini refinement (optional)
+## 8. Live mailbox mode (mailbox.py)
+
+`LiveInbox` reads a real IMAP account behind the same duck-typed API as
+`loader.Inbox`, so the entire pipeline is source-agnostic:
+
+- Source: `INBOX_SOURCE=imaps://USER:PASS@HOST/MAILBOX`, or the
+  `IMAP_HOST` / `IMAP_USER` / `IMAP_PASS` (+ `IMAP_MAILBOX`/`PORT`/`SSL`) env
+  separate from the URL. `make_inbox()` picks folder vs http vs imap from the
+  source string.
+- Selects the mailbox READ-ONLY; each message yields a bundle-shaped record
+  (`email_id`, `from`, `subject`, `body`, `attachments`) and attachments are
+  written to `data/live_inbox/` (config `LiveInbox(cache_dir=...)`).
+- `--poll SECS` re-scans on a timer; `--new-only` skips UIDs ≤ the watermark in
+  `data/live_inbox/seen_uids.json`; `--reset` clears it. `--source` overrides
+  `INBOX_SOURCE`.
+- Real-world attachment names resolve SI/BL via `config.attachment_role()`, so
+  production mail is classified exactly like the bundle.
+
+## 9. Gemini refinement (optional)
 
 - Plain REST via `urllib` — `gemini.py`, no SDK. Env: `GEMINI_API_KEY`,
-  `GEMINI_MODEL` (default `gemini-2.0-flash`).
+  `GEMINI_MODEL` (default `gemini-3.5-flash-lite`).
+- The committed `data/results.json` is Gemini-refined (220 BL_COMPARISON). A
+  key-less re-run is rule-only (129 BL_COMPARISON) and lower-fidelity for the
+  demo; regenerate with the key when reproducing the shipped numbers.
 - Consulted only for emails the rules flagged uncertain (comparison claimed
   without docs, or GENERAL that mentions BL). Deterministic rules win when the
   key is absent or the call fails.

@@ -82,7 +82,22 @@ def _pdf_text(raw):
         t = page.extract_text() or ""
         if t.strip():
             pages.append(t)
-    return "\n".join(pages)
+    text = "\n".join(pages)
+    # Scanned PDF (no text layer) — try optional OCR engine if installed.
+    if looks_unreadable(text):
+        text = _ocr_fallback(raw)
+    return text
+
+
+def _ocr_fallback(raw):
+    """Return OCR text for a scanned PDF, or '' when OCR is unavailable."""
+    try:
+        from ocr import available, ocr_pdf
+        if available():
+            return ocr_pdf(raw)
+    except Exception:
+        pass
+    return ""
 
 
 def looks_unreadable(text):

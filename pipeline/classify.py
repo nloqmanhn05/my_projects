@@ -50,7 +50,8 @@ def classify(email):
     lower = body.lower()
     atts = [a.lower() for a in (email.get("attachments") or [])]
 
-    has_si_bl = any("_si." in a for a in atts) and any("_bl." in a for a in atts)
+    has_si_bl = any(config.attachment_role(a) == "si" for a in atts) and \
+        any(config.attachment_role(a) == "bl" for a in atts)
 
     return _classify_rules(lower, has_si_bl)
 
@@ -89,7 +90,8 @@ def uncertainty(email, cat):
     whether Gemini may refine)."""
     if cat == "BL_COMPARISON":
         atts = [a.lower() for a in (email.get("attachments") or [])]
-        if not (any("_si." in a for a in atts) and any("_bl." in a for a in atts)):
+        if not (any(config.attachment_role(a) == "si" for a in atts) and
+                any(config.attachment_role(a) == "bl" for a in atts)):
             return True  # comparison claimed without actual docs
     if cat == "GENERAL":
         lower = strip_warning_block(email.get("body") or "").lower()
